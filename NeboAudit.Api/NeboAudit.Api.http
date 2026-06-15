@@ -1,0 +1,6 @@
+@NeboAudit.Api_HostAddress = http://localhost:5267
+
+GET {{NeboAudit.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

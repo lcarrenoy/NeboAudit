@@ -1,0 +1,56 @@
+﻿project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "NeboAudit"
+  site-url: "https://lcarrenoy.github.io/NeboAudit-Platform"
+  page-navigation: true
+  page-footer:
+    left: "NeboAudit — Sistema de Gobernanza Regulatoria | Luis Carreño · lcarrenoy@uni.pe"
+    right:
+      - icon: github
+        href: https://github.com/lcarrenoy/NeboAudit
+
+  navbar:
+    background: "#1D4E6B"
+    foreground: "white"
+    left:
+      - text: "Inicio"
+        href: index.qmd
+      - text: "Análisis de Riesgo"
+        menu:
+          - text: "Patrones de Riesgo"
+            href: reporte_patrones.qmd
+          - text: "Análisis de Penalidades (Pareto)"
+            href: analisis_pareto.qmd
+      - text: "Gobernanza COBIT"
+        href: cobit_governance.qmd
+      - text: "Reporte Full Ejecutable"
+        href: NeboAudit_FULL_Report.qmd
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-title: "Contenido del Reporte"
+    toc-depth: 3
+    code-fold: true
+    code-tools: true
+    code-link: true
+    smooth-scroll: true
+    include-in-header: _styles.html
+    # ==========================================
+    # CONFIGURACIÓN GLOBAL DE GRÁFICOS (Ajuste de tamaño)
+    # ==========================================
+    fig-width: 8.5
+    fig-height: 4
+    fig-align: center
+    fig-dpi: 150
+
+execute:
+  freeze: auto
+  warning: false
+  message: false
+
+lang: es
