@@ -1,0 +1,9 @@
+﻿node_modules/
+bin/
+obj/
+.quarto/
+_freeze/
+__pycache__/
+*.pbix
+.env
+appsettings.json
