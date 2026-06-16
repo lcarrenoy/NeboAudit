@@ -1,1 +1,1 @@
-Sitemap: https://lcarrenoy.github.io/NeboAudit-Platform/sitemap.xml
+Sitemap: https://lcarrenoy.github.io/NeboAudit/sitemap.xml

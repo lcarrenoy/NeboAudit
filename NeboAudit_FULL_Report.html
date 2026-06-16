@@ -163,31 +163,16 @@ h2 { color: #1D4E6B; border-left: 5px solid #1D9E75; padding-left: .75rem; }
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.qmd"> 
-<span class="menu-text">Inicio</span></a>
-  </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-análisis-de-riesgo" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Análisis de Riesgo</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-análisis-de-riesgo">    
-        <li>
-    <a class="dropdown-item" href="./reporte_patrones.html">
- <span class="dropdown-text">Patrones de Riesgo</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./analisis_pareto.qmd">
- <span class="dropdown-text">Análisis de Penalidades (Pareto)</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="./cobit_governance.qmd"> 
-<span class="menu-text">Gobernanza COBIT</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link active" href="./NeboAudit_FULL_Report.html" aria-current="page"> 
-<span class="menu-text">Reporte Full Ejecutable</span></a>
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./reporte_patrones.html"> 
+<span class="menu-text">Risk Analysis</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./NeboAudit_FULL_Report.html"> 
+<span class="menu-text">Full Report</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -202,7 +187,7 @@ h2 { color: #1D4E6B; border-left: 5px solid #1D9E75; padding-left: .75rem; }
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Contenido del Reporte</h2>
+    <h2 id="toc-title">Report Contents</h2>
    
   <ul>
   <li><a href="#part-a---the-business" id="toc-part-a---the-business" class="nav-link active" data-scroll-target="#part-a---the-business">PART A - THE BUSINESS</a>
@@ -1303,7 +1288,7 @@ P4: Quarter-end staffing   -&gt; saves $1.35M</code></pre>
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/lcarrenoy\.github\.io\/NeboAudit-Platform");
+        var filterRegex = new RegExp("https:\/\/lcarrenoy\.github\.io\/NeboAudit");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -2186,7 +2171,7 @@ P4: Quarter-end staffing   -&gt; saves $1.35M</code></pre>
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>NeboAudit — Sistema de Gobernanza Regulatoria | Luis Carreño · lcarrenoy@uni.pe</p>
+<p>NeboAudit — Regulatory Governance System | Luis Carreño · lcarrenoy@uni.pe</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
