@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://lcarrenoy.github.io/NeboAudit-Platform/NeboAudit_FULL_Report.html</loc>
-    <lastmod>2026-06-15T11:00:13.317Z</lastmod>
+    <loc>https://lcarrenoy.github.io/NeboAudit/reporte_patrones.html</loc>
+    <lastmod>2026-06-15T09:57:30.643Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lcarrenoy.github.io/NeboAudit/NeboAudit_MASTER.html</loc>
+    <lastmod>2026-06-15T10:17:44.634Z</lastmod>
   </url>
   <url>
     <loc>https://lcarrenoy.github.io/NeboAudit/NeboAudit_FULL_Report.html</loc>
     <lastmod>2026-06-15T11:00:13.317Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lcarrenoy.github.io/NeboAudit/NeboAudit_Guia_Completa.html</loc>
+    <lastmod>2026-06-15T10:14:27.198Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lcarrenoy.github.io/NeboAudit/NeboAudit_Sections_11_21.html</loc>
+    <lastmod>2026-06-15T10:14:16.714Z</lastmod>
   </url>
 </urlset>

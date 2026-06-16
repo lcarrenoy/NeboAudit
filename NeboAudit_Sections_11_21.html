@@ -1,0 +1,2364 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>neboaudit_sections_11_21 – NeboAudit</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-c404748165f53a3e38dae2bbf559422a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+</head><body class="nav-fixed quarto-light">﻿<style>
+/* 1. Candado al contenedor principal del reporte */
+.quarto-container, main, .page-columns, #quarto-document-content {
+    max-width: 1100px !important; /* Evita que el reporte se estire infinitamente */
+    margin: 0 auto !important;
+    float: none !important;
+}
+
+/* 2. Control estricto para que los gráficos NO causen desborde */
+.cell-output-display img, .quarto-figure img, img {
+    max-width: 100% !important;   /* Ajuste perfecto al ancho del texto */
+    height: auto !important;
+    max-height: 420px !important;  /* Evita que sean muy altos verticalmente */
+    display: block !important;
+    margin: 1.5rem auto !important;
+}
+
+/* 3. Evitar que el código largo estire la página (Culpable del scroll horizontal) */
+pre, code, .cell-output-stdout, .sourceCode {
+    max-width: 100% !important;
+    overflow-x: auto !important;   /* Si el código es largo, el scroll se queda DENTRO de la caja negra */
+    white-space: pre !important;
+}
+
+/* Estilos de identidad NeboAudit */
+.navbar { background: #1D4E6B !important; }
+.navbar-brand { color: white !important; font-weight: 600; }
+h1 { color: #1D4E6B; border-bottom: 3px solid #1D9E75; padding-bottom: .5rem; }
+h2 { color: #1D4E6B; border-left: 5px solid #1D9E75; padding-left: .75rem; }
+.cross-foot-box { background: #E1F5EE; border-left: 5px solid #1D9E75; padding: 1rem; color: #0A5C46; font-family: monospace; }
+</style>
+
+
+
+
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">NeboAudit</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./NeboAudit_FULL_Report.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./reporte_patrones.html"> 
+<span class="menu-text">Risk Analysis</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./NeboAudit_FULL_Report.html"> 
+<span class="menu-text">Full Report</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Report Contents</h2>
+   
+  <ul>
+  <li><a href="#the-mortgage-process-3-phases" id="toc-the-mortgage-process-3-phases" class="nav-link active" data-scroll-target="#the-mortgage-process-3-phases">11. The mortgage process — 3 phases</a>
+  <ul class="collapse">
+  <li><a href="#phase-1-the-mortgage-loan" id="toc-phase-1-the-mortgage-loan" class="nav-link" data-scroll-target="#phase-1-the-mortgage-loan">Phase 1 — The mortgage loan</a></li>
+  <li><a href="#phase-2-the-audit-where-nebo-metasource-enters" id="toc-phase-2-the-audit-where-nebo-metasource-enters" class="nav-link" data-scroll-target="#phase-2-the-audit-where-nebo-metasource-enters">Phase 2 — The audit (where Nebo / MetaSource enters)</a></li>
+  <li><a href="#phase-3-your-role-as-database-sme" id="toc-phase-3-your-role-as-database-sme" class="nav-link" data-scroll-target="#phase-3-your-role-as-database-sme">Phase 3 — Your role as Database SME</a></li>
+  </ul></li>
+  <li><a href="#penalty-analysis-and-pareto" id="toc-penalty-analysis-and-pareto" class="nav-link" data-scroll-target="#penalty-analysis-and-pareto">12. Penalty analysis and Pareto</a>
+  <ul class="collapse">
+  <li><a href="#penalty-structure-by-regulation" id="toc-penalty-structure-by-regulation" class="nav-link" data-scroll-target="#penalty-structure-by-regulation">12.1 Penalty structure by regulation</a></li>
+  <li><a href="#penalty-by-tenant-from-your-1000-loan-data" id="toc-penalty-by-tenant-from-your-1000-loan-data" class="nav-link" data-scroll-target="#penalty-by-tenant-from-your-1000-loan-data">12.2 Penalty by tenant (from your 1,000-loan data)</a></li>
+  <li><a href="#pareto-root-cause-stored-procedure" id="toc-pareto-root-cause-stored-procedure" class="nav-link" data-scroll-target="#pareto-root-cause-stored-procedure">12.3 Pareto — root cause stored procedure</a></li>
+  <li><a href="#action-plan-from-pareto" id="toc-action-plan-from-pareto" class="nav-link" data-scroll-target="#action-plan-from-pareto">12.4 Action plan from Pareto</a></li>
+  </ul></li>
+  <li><a href="#kpis-audit-footings" id="toc-kpis-audit-footings" class="nav-link" data-scroll-target="#kpis-audit-footings">13. KPIs &amp; audit footings</a>
+  <ul class="collapse">
+  <li><a href="#kpi-tracking-query" id="toc-kpi-tracking-query" class="nav-link" data-scroll-target="#kpi-tracking-query">13.1 KPI tracking query</a></li>
+  <li><a href="#footing-verification-with-grouping-sets" id="toc-footing-verification-with-grouping-sets" class="nav-link" data-scroll-target="#footing-verification-with-grouping-sets">13.2 Footing verification with GROUPING SETS</a></li>
+  <li><a href="#cross-foot-verification-checklist" id="toc-cross-foot-verification-checklist" class="nav-link" data-scroll-target="#cross-foot-verification-checklist">13.3 Cross-foot verification checklist</a></li>
+  </ul></li>
+  <li><a href="#cobit-2019-governance" id="toc-cobit-2019-governance" class="nav-link" data-scroll-target="#cobit-2019-governance">14. COBIT 2019 governance</a></li>
+  <li><a href="#audit-procedures-isa-pcaob" id="toc-audit-procedures-isa-pcaob" class="nav-link" data-scroll-target="#audit-procedures-isa-pcaob">15. Audit procedures (ISA / PCAOB)</a></li>
+  <li><a href="#access-control-who-sees-what" id="toc-access-control-who-sees-what" class="nav-link" data-scroll-target="#access-control-who-sees-what">16. Access control — who sees what</a>
+  <ul class="collapse">
+  <li><a href="#row-level-security" id="toc-row-level-security" class="nav-link" data-scroll-target="#row-level-security">16.1 Row-Level Security</a></li>
+  <li><a href="#access-matrix" id="toc-access-matrix" class="nav-link" data-scroll-target="#access-matrix">16.2 Access matrix</a></li>
+  </ul></li>
+  <li><a href="#traceability-who-changed-what" id="toc-traceability-who-changed-what" class="nav-link" data-scroll-target="#traceability-who-changed-what">17. Traceability — who changed what</a>
+  <ul class="collapse">
+  <li><a href="#trigger-already-in-your-schema-section-2" id="toc-trigger-already-in-your-schema-section-2" class="nav-link" data-scroll-target="#trigger-already-in-your-schema-section-2">17.1 Trigger (already in your schema — section 2)</a></li>
+  <li><a href="#audit-trail-query" id="toc-audit-trail-query" class="nav-link" data-scroll-target="#audit-trail-query">17.2 Audit trail query</a></li>
+  <li><a href="#anti-tampering-controls" id="toc-anti-tampering-controls" class="nav-link" data-scroll-target="#anti-tampering-controls">17.3 Anti-tampering controls</a></li>
+  </ul></li>
+  <li><a href="#risk-matrix-every-project-phase" id="toc-risk-matrix-every-project-phase" class="nav-link" data-scroll-target="#risk-matrix-every-project-phase">18. Risk matrix — every project phase</a>
+  <ul class="collapse">
+  <li><a href="#heat-map" id="toc-heat-map" class="nav-link" data-scroll-target="#heat-map">18.1 Heat map</a></li>
+  <li><a href="#full-risk-register-by-phase" id="toc-full-risk-register-by-phase" class="nav-link" data-scroll-target="#full-risk-register-by-phase">18.2 Full risk register by phase</a></li>
+  </ul></li>
+  <li><a href="#disaster-recovery-plans-b-and-c" id="toc-disaster-recovery-plans-b-and-c" class="nav-link" data-scroll-target="#disaster-recovery-plans-b-and-c">19. Disaster recovery — Plans B and C</a>
+  <ul class="collapse">
+  <li><a href="#scenarios" id="toc-scenarios" class="nav-link" data-scroll-target="#scenarios">19.1 Scenarios</a></li>
+  <li><a href="#rollback-procedure" id="toc-rollback-procedure" class="nav-link" data-scroll-target="#rollback-procedure">19.2 Rollback procedure</a></li>
+  </ul></li>
+  <li><a href="#competitive-analysis" id="toc-competitive-analysis" class="nav-link" data-scroll-target="#competitive-analysis">20. Competitive analysis</a>
+  <ul class="collapse">
+  <li><a href="#nebo-vs.-the-market" id="toc-nebo-vs.-the-market" class="nav-link" data-scroll-target="#nebo-vs.-the-market">20.1 Nebo vs.&nbsp;the market</a></li>
+  <li><a href="#nebo-advantages" id="toc-nebo-advantages" class="nav-link" data-scroll-target="#nebo-advantages">20.2 Nebo advantages</a></li>
+  </ul></li>
+  <li><a href="#interview-pitch" id="toc-interview-pitch" class="nav-link" data-scroll-target="#interview-pitch">21. Interview pitch</a></li>
+  <li><a href="#checklist-monday-15-jun-3-pm-mt" id="toc-checklist-monday-15-jun-3-pm-mt" class="nav-link" data-scroll-target="#checklist-monday-15-jun-3-pm-mt">Checklist — Monday 15 Jun, 3 PM MT</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7"></h1></header><div class="quarto-title-block"><div class="quarto-title-tools-only"><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+
+
+
+
+<hr>
+<section id="the-mortgage-process-3-phases" class="level2">
+<h2 class="anchored" data-anchor-id="the-mortgage-process-3-phases">11. The mortgage process — 3 phases</h2>
+<section id="phase-1-the-mortgage-loan" class="level3">
+<h3 class="anchored" data-anchor-id="phase-1-the-mortgage-loan">Phase 1 — The mortgage loan</h3>
+<pre><code>CLIENT wants to buy a $400K house
+        │
+        ▼
+Goes to First National Bank (FNB)
+        │
+        ▼
+Bank evaluates: income, debts, credit history
+        │
+        ▼
+Bank approves $360K loan
+        │
+        ▼
+  Loan amount:    $360,000
+  Property value: $400,000
+  LTV:            $360K / $400K = 90.0%
+  DTI:            $3K debts / $8K income = 37.5%
+        │
+        ▼
+  ┌──────────────┬──────────┬──────────┬─────────────────────┐
+  │ Type         │ Max LTV  │ Max DTI  │ Guarantor           │
+  ├──────────────┼──────────┼──────────┼─────────────────────┤
+  │ FHA          │ 96.5%    │ 43%      │ Federal government  │
+  │ VA           │ 100%     │ 41%      │ Dept of Veterans    │
+  │ Conventional │ 95%      │ 45%      │ Fannie Mae (private)│
+  │ USDA         │ 100%     │ 41%      │ USDA Rural Dev      │
+  └──────────────┴──────────┴──────────┴─────────────────────┘</code></pre>
+<p><strong>Why these rules exist:</strong> Before 2008, banks lent to anyone (NINJA loans: No Income, No Job, No Assets). The system collapsed. Lehman Brothers failed. $700B taxpayer bailout. Dodd-Frank Act (2010) created the CFPB and mandated audits.</p>
+</section>
+<section id="phase-2-the-audit-where-nebo-metasource-enters" class="level3">
+<h3 class="anchored" data-anchor-id="phase-2-the-audit-where-nebo-metasource-enters">Phase 2 — The audit (where Nebo / MetaSource enters)</h3>
+<pre><code>Bank CANNOT audit its own loans — conflict of interest
+        │
+        ▼
+Bank hires MetaSource (800+ clients, 30+ years)
+        │
+        ▼
+MetaSource uses NEBO platform to verify each loan:
+
+  ┌──────────┬──────────────────────────────────┬────────┐
+  │ Framework│ Check item                       │ Result │
+  ├──────────┼──────────────────────────────────┼────────┤
+  │ TRID     │ Loan Estimate delivered ≤ 3 days │ Pass   │
+  │ FHA      │ LTV ≤ 96.5%?                     │ Fail   │
+  │ VA       │ COE verified in VBMS?             │ Fail   │
+  │ FNMA     │ DTI ≤ 45%?                        │ Pass   │
+  │ USDA     │ Property in eligible rural area?  │ Pass   │
+  └──────────┴──────────────────────────────────┴────────┘
+
+3 results:
+  🟢 Pass   — compliant
+  🔴 Fail   — penalty: $5K–$250K fine OR loan repurchase (100%)
+  🟡 Review — needs manager verification</code></pre>
+</section>
+<section id="phase-3-your-role-as-database-sme" class="level3">
+<h3 class="anchored" data-anchor-id="phase-3-your-role-as-database-sme">Phase 3 — Your role as Database SME</h3>
+<pre><code>YOU build the data layer:
+
+  dbo.Loans               → every mortgage record
+  dbo.AuditLog            → immutable change trail (who, when, old, new)
+  Stored procedures       → pass rates, anomalies, footings, forecasts
+  .NET 9 API              → Swagger endpoints for auditors
+  ML.NET                  → risk scoring inside the API
+  trg_Loans_Audit         → trigger captures every mutation
+  RLS (Row-Level Security)→ FNB never sees MMC data
+
+  DBA approves your schemas → you deploy → auditors use → reports generated</code></pre>
+<hr>
+</section>
+</section>
+<section id="penalty-analysis-and-pareto" class="level2">
+<h2 class="anchored" data-anchor-id="penalty-analysis-and-pareto">12. Penalty analysis and Pareto</h2>
+<section id="penalty-structure-by-regulation" class="level3">
+<h3 class="anchored" data-anchor-id="penalty-structure-by-regulation">12.1 Penalty structure by regulation</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Framework</th>
+<th>Violation</th>
+<th>Penalty</th>
+<th>Worst case</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>TRID</td>
+<td>LE late (&gt; 3 business days)</td>
+<td>$5,000–$25,000</td>
+<td>$1M consent order CFPB (pattern)</td>
+</tr>
+<tr class="even">
+<td>TRID</td>
+<td>CD late (&lt; 3 days before close)</td>
+<td>$25,000–$100,000</td>
+<td>Can invalidate closing</td>
+</tr>
+<tr class="odd">
+<td>FHA</td>
+<td>LTV exceeds 96.5%</td>
+<td>Loan repurchase (100%)</td>
+<td>Loss of FHA lender status</td>
+</tr>
+<tr class="even">
+<td>FHA</td>
+<td>MIP rate incorrect</td>
+<td>$35,000 + difference to FHA fund</td>
+<td>HUD audit of all FHA loans</td>
+</tr>
+<tr class="odd">
+<td>FHA</td>
+<td>DTI &gt; 43% without comp. factors</td>
+<td>$35,000 or repurchase</td>
+<td>HUD OIG referral</td>
+</tr>
+<tr class="even">
+<td>VA</td>
+<td>COE not verified in VBMS</td>
+<td>$250,000 + repurchase</td>
+<td>FBI referral if fraud</td>
+</tr>
+<tr class="odd">
+<td>VA</td>
+<td>Funding fee wrong</td>
+<td>$50,000 + refund to veteran</td>
+<td>Double penalty if exempt charged</td>
+</tr>
+<tr class="even">
+<td>FNMA</td>
+<td>DTI &gt; 45%</td>
+<td>Loan repurchase by Fannie Mae</td>
+<td>Loss of Fannie Mae seller status</td>
+</tr>
+<tr class="odd">
+<td>USDA</td>
+<td>Property not in rural area</td>
+<td>Loan repurchase + subsidy return</td>
+<td>USDA program ban</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="penalty-by-tenant-from-your-1000-loan-data" class="level3">
+<h3 class="anchored" data-anchor-id="penalty-by-tenant-from-your-1000-loan-data">12.2 Penalty by tenant (from your 1,000-loan data)</h3>
+<p>Run this in SSMS to get the real numbers from your data:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    T.Name <span class="kw">AS</span> Tenant,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> TotalLoans,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> L.IsFail <span class="op">=</span> <span class="dv">1</span> <span class="cf">THEN</span> <span class="dv">1</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>) <span class="kw">AS</span> Fails,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">CAST</span>(<span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> L.IsFail <span class="op">=</span> <span class="dv">1</span> <span class="cf">THEN</span> <span class="dv">1</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>) <span class="op">*</span> <span class="fl">100.0</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>         <span class="op">/</span> <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> <span class="dt">DECIMAL</span>(<span class="dv">5</span>,<span class="dv">1</span>)) <span class="kw">AS</span> DefectPct,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">SUM</span>(L.Penalty) <span class="kw">AS</span> TotalPenalty,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">SUM</span>(L.LoanAmount) <span class="kw">AS</span> TotalVolume</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> dbo.Loans L</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> dbo.Tenants T <span class="kw">ON</span> L.TenantId <span class="op">=</span> T.TenantId</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> T.Name</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> TotalPenalty <span class="kw">DESC</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="pareto-root-cause-stored-procedure" class="level3">
+<h3 class="anchored" data-anchor-id="pareto-root-cause-stored-procedure">12.3 Pareto — root cause stored procedure</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">OR</span> <span class="kw">ALTER</span> <span class="kw">PROCEDURE</span> dbo.usp_ParetoAnalysis</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">AS</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">BEGIN</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SET</span> NOCOUNT <span class="kw">ON</span>;</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WITH</span> Causes <span class="kw">AS</span> (</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">SELECT</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>            <span class="cf">CASE</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>                <span class="cf">WHEN</span> LoanType <span class="op">=</span> <span class="st">'VA'</span> <span class="kw">AND</span> LTV <span class="op">&gt;</span> <span class="dv">96</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">THEN</span> <span class="st">'VA COE / funding fee'</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>                <span class="cf">WHEN</span> LoanType <span class="op">=</span> <span class="st">'FHA'</span> <span class="kw">AND</span> LTV <span class="op">&gt;</span> <span class="fl">96.5</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">THEN</span> <span class="st">'FHA LTV exceeds limit'</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>                <span class="cf">WHEN</span> DTI <span class="op">&gt;</span> <span class="dv">43</span> <span class="kw">AND</span> LoanType <span class="kw">IN</span> (<span class="st">'FHA'</span>,<span class="st">'VA'</span>)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">THEN</span> <span class="st">'DTI exceeds limit'</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>                <span class="cf">WHEN</span> LTV <span class="op">&gt;</span> <span class="dv">95</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">THEN</span> <span class="st">'LTV warning zone'</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>                <span class="cf">WHEN</span> AuditDays <span class="op">&gt;</span> <span class="dv">5</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">THEN</span> <span class="st">'SLA breach (&gt;5 days)'</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>                <span class="cf">ELSE</span> <span class="st">'Other compliance issue'</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>            <span class="cf">END</span> <span class="kw">AS</span> RootCause,</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>            Penalty</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>        <span class="kw">FROM</span> dbo.Loans</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>        <span class="kw">WHERE</span> IsFail <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    Grouped <span class="kw">AS</span> (</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>        <span class="kw">SELECT</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>            RootCause,</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>            <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> Fails,</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>            <span class="fu">SUM</span>(Penalty) <span class="kw">AS</span> TotalPenalty,</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>            <span class="fu">CAST</span>(<span class="fu">SUM</span>(Penalty) <span class="op">*</span> <span class="fl">100.0</span> <span class="op">/</span> <span class="fu">SUM</span>(<span class="fu">SUM</span>(Penalty)) <span class="kw">OVER</span>()</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>                <span class="kw">AS</span> <span class="dt">DECIMAL</span>(<span class="dv">5</span>,<span class="dv">1</span>)) <span class="kw">AS</span> PctOfTotal</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>        <span class="kw">FROM</span> Causes</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>        <span class="kw">GROUP</span> <span class="kw">BY</span> RootCause</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>        RootCause,</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>        Fails,</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>        TotalPenalty,</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>        PctOfTotal,</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>        <span class="fu">SUM</span>(PctOfTotal) <span class="kw">OVER</span>(<span class="kw">ORDER</span> <span class="kw">BY</span> TotalPenalty <span class="kw">DESC</span>) <span class="kw">AS</span> CumulativePct,</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>        <span class="cf">CASE</span></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>            <span class="cf">WHEN</span> <span class="fu">SUM</span>(PctOfTotal) <span class="kw">OVER</span>(<span class="kw">ORDER</span> <span class="kw">BY</span> TotalPenalty <span class="kw">DESC</span>) <span class="op">&lt;=</span> <span class="dv">80</span> <span class="cf">THEN</span> <span class="st">'Zone A'</span></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>            <span class="cf">WHEN</span> <span class="fu">SUM</span>(PctOfTotal) <span class="kw">OVER</span>(<span class="kw">ORDER</span> <span class="kw">BY</span> TotalPenalty <span class="kw">DESC</span>) <span class="op">&lt;=</span> <span class="dv">95</span> <span class="cf">THEN</span> <span class="st">'Zone B'</span></span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>            <span class="cf">ELSE</span> <span class="st">'Zone C'</span></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>        <span class="cf">END</span> <span class="kw">AS</span> ParetoZone</span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> Grouped</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ORDER</span> <span class="kw">BY</span> TotalPenalty <span class="kw">DESC</span>;</span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a><span class="cf">END</span>;</span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>GO</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="action-plan-from-pareto" class="level3">
+<h3 class="anchored" data-anchor-id="action-plan-from-pareto">12.4 Action plan from Pareto</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Priority</th>
+<th>Root cause</th>
+<th>Preventive action</th>
+<th>Corrective action</th>
+<th>SP to build</th>
+<th style="text-align: right;">ROI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">P1</td>
+<td>VA COE not verified</td>
+<td>Mandatory pre-check SP before audit</td>
+<td>Escalate VBMS timeout in 4hr</td>
+<td>usp_ValidateCOE</td>
+<td style="text-align: right;">150x</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">P1</td>
+<td>FHA LTV over limit</td>
+<td><code>IF @LTV &gt; 96.5 AND @Type='FHA' → RAISERROR</code></td>
+<td>Re-review all FHA LTV &gt; 93%</td>
+<td>usp_UpsertLoan</td>
+<td style="text-align: right;">298x</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">P1</td>
+<td>DTI over limit</td>
+<td><code>IF @DTI &gt; 43 AND @Type='FHA' → RAISERROR</code></td>
+<td>Reject loan 40 retroactively</td>
+<td>usp_UpsertLoan</td>
+<td style="text-align: right;">285x</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">P2</td>
+<td>MIP rate outdated</td>
+<td>Create dbo.MIPRates lookup table</td>
+<td>Update monthly from FHA bulletin</td>
+<td>usp_ValidateMIP</td>
+<td style="text-align: right;">35x</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">P2</td>
+<td>TRID timing</td>
+<td>Auto-alert servicer at day 2</td>
+<td>SP calculates business days</td>
+<td>usp_CheckTRID</td>
+<td style="text-align: right;">55x</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="kpis-audit-footings" class="level2">
+<h2 class="anchored" data-anchor-id="kpis-audit-footings">13. KPIs &amp; audit footings</h2>
+<section id="kpi-tracking-query" class="level3">
+<h3 class="anchored" data-anchor-id="kpi-tracking-query">13.1 KPI tracking query</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">OR</span> <span class="kw">ALTER</span> <span class="kw">PROCEDURE</span> dbo.usp_KPIDashboard</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">AS</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="cf">BEGIN</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SET</span> NOCOUNT <span class="kw">ON</span>;</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Defect rate'</span> <span class="kw">AS</span> KPI,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">CAST</span>(<span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> IsFail<span class="op">=</span><span class="dv">1</span> <span class="cf">THEN</span> <span class="dv">1</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>)<span class="op">*</span><span class="fl">100.0</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>             <span class="op">/</span><span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> <span class="dt">DECIMAL</span>(<span class="dv">5</span>,<span class="dv">1</span>)) <span class="kw">AS</span> Actual,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        <span class="fl">5.0</span> <span class="kw">AS</span> Target,</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">CASE</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">WHEN</span> <span class="fu">CAST</span>(<span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> IsFail<span class="op">=</span><span class="dv">1</span> <span class="cf">THEN</span> <span class="dv">1</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>)<span class="op">*</span><span class="fl">100.0</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>                 <span class="op">/</span><span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> <span class="dt">DECIMAL</span>(<span class="dv">5</span>,<span class="dv">1</span>)) <span class="op">&lt;=</span> <span class="dv">5</span> <span class="cf">THEN</span> <span class="st">'GREEN'</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">WHEN</span> <span class="fu">CAST</span>(<span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> IsFail<span class="op">=</span><span class="dv">1</span> <span class="cf">THEN</span> <span class="dv">1</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>)<span class="op">*</span><span class="fl">100.0</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>                 <span class="op">/</span><span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> <span class="dt">DECIMAL</span>(<span class="dv">5</span>,<span class="dv">1</span>)) <span class="op">&lt;=</span> <span class="dv">10</span> <span class="cf">THEN</span> <span class="st">'YELLOW'</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">ELSE</span> <span class="st">'RED'</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">END</span> <span class="kw">AS</span> Semaphore</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> dbo.Loans</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">UNION</span> <span class="kw">ALL</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> <span class="st">'Avg audit days'</span>,</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>        <span class="fu">CAST</span>(<span class="fu">AVG</span>(AuditDays) <span class="kw">AS</span> <span class="dt">DECIMAL</span>(<span class="dv">3</span>,<span class="dv">1</span>)), <span class="fl">2.0</span>,</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">CASE</span> <span class="cf">WHEN</span> <span class="fu">AVG</span>(AuditDays) <span class="op">&lt;=</span> <span class="dv">2</span> <span class="cf">THEN</span> <span class="st">'GREEN'</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>             <span class="cf">WHEN</span> <span class="fu">AVG</span>(AuditDays) <span class="op">&lt;=</span> <span class="fl">3.5</span> <span class="cf">THEN</span> <span class="st">'YELLOW'</span> <span class="cf">ELSE</span> <span class="st">'RED'</span> <span class="cf">END</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> dbo.Loans</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">UNION</span> <span class="kw">ALL</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> <span class="st">'Total penalty exposure'</span>,</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>        <span class="fu">CAST</span>(<span class="fu">SUM</span>(Penalty)<span class="op">/</span><span class="dv">1000</span> <span class="kw">AS</span> <span class="dt">DECIMAL</span>(<span class="dv">10</span>,<span class="dv">1</span>)), <span class="fl">100.0</span>,</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">CASE</span> <span class="cf">WHEN</span> <span class="fu">SUM</span>(Penalty) <span class="op">&lt;=</span> <span class="dv">100000</span> <span class="cf">THEN</span> <span class="st">'GREEN'</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>             <span class="cf">WHEN</span> <span class="fu">SUM</span>(Penalty) <span class="op">&lt;=</span> <span class="dv">500000</span> <span class="cf">THEN</span> <span class="st">'YELLOW'</span> <span class="cf">ELSE</span> <span class="st">'RED'</span> <span class="cf">END</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> dbo.Loans;</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a><span class="cf">END</span>;</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>GO</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="footing-verification-with-grouping-sets" class="level3">
+<h3 class="anchored" data-anchor-id="footing-verification-with-grouping-sets">13.2 Footing verification with GROUPING SETS</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">OR</span> <span class="kw">ALTER</span> <span class="kw">PROCEDURE</span> dbo.usp_FootingVerification</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">AS</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">BEGIN</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SET</span> NOCOUNT <span class="kw">ON</span>;</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">COALESCE</span>(T.Name, <span class="st">'=== GRAND TOTAL'</span>) <span class="kw">AS</span> Tenant,</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">COALESCE</span>(L.LoanType, <span class="st">'--- Subtotal ---'</span>) <span class="kw">AS</span> LoanType,</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> Loans,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">SUM</span>(L.LoanAmount) <span class="kw">AS</span> TotalAmount,</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        <span class="fu">AVG</span>(L.LTV) <span class="kw">AS</span> AvgLTV,</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        <span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> L.IsFail <span class="op">=</span> <span class="dv">0</span> <span class="cf">THEN</span> <span class="dv">1</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>) <span class="kw">AS</span> Pass,</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>        <span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> L.IsFail <span class="op">=</span> <span class="dv">1</span> <span class="cf">THEN</span> <span class="dv">1</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>) <span class="kw">AS</span> Fail,</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>        <span class="fu">CAST</span>(<span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> L.IsFail <span class="op">=</span> <span class="dv">0</span> <span class="cf">THEN</span> <span class="dv">1</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>) <span class="op">*</span> <span class="fl">100.0</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>             <span class="op">/</span> <span class="fu">NULLIF</span>(<span class="fu">COUNT</span>(<span class="op">*</span>), <span class="dv">0</span>) <span class="kw">AS</span> <span class="dt">DECIMAL</span>(<span class="dv">5</span>,<span class="dv">1</span>)) <span class="kw">AS</span> PassRate,</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>        <span class="fu">SUM</span>(L.Penalty) <span class="kw">AS</span> TotalPenalty</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> dbo.Loans L</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> dbo.Tenants T <span class="kw">ON</span> L.TenantId <span class="op">=</span> T.TenantId</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> <span class="fu">GROUPING</span> SETS (</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>        (T.Name, L.LoanType),</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>        (T.Name),</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>        ()</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>        <span class="fu">GROUPING</span>(T.Name),</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>        T.Name,</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>        <span class="fu">GROUPING</span>(L.LoanType),</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>        L.LoanType;</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="cf">END</span>;</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>GO</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="cross-foot-verification-checklist" class="level3">
+<h3 class="anchored" data-anchor-id="cross-foot-verification-checklist">13.3 Cross-foot verification checklist</h3>
+<pre><code>After running usp_FootingVerification, verify:
+
+✅ Vertical:     FNB subtotal + MMC subtotal = Grand total
+✅ Horizontal:   Pass + Fail = Total loans per row
+✅ Completeness: Grand total loans = SELECT COUNT(*) FROM dbo.Loans
+✅ Penalties:    SUM by tenant + SUM by type = Grand total penalty
+✅ LTV formula:  LoanAmount / PropertyValue per row (validated at insert by SP)</code></pre>
+<hr>
+</section>
+</section>
+<section id="cobit-2019-governance" class="level2">
+<h2 class="anchored" data-anchor-id="cobit-2019-governance">14. COBIT 2019 governance</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Domain</th>
+<th>Objective</th>
+<th>Implementation in NeboAudit</th>
+<th style="text-align: center;">Maturity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>EDM</td>
+<td>EDM01 Governance framework</td>
+<td>Multi-tenant RLS · JWT role separation · access matrix</td>
+<td style="text-align: center;">L3</td>
+</tr>
+<tr class="even">
+<td>EDM</td>
+<td>EDM03 Risk optimization</td>
+<td>Risk matrix by project phase · Pareto action plan</td>
+<td style="text-align: center;">L2</td>
+</tr>
+<tr class="odd">
+<td>APO</td>
+<td>APO12 Risk management</td>
+<td>CHECK constraints · AuditLog trigger · anomaly SP</td>
+<td style="text-align: center;">L3</td>
+</tr>
+<tr class="even">
+<td>APO</td>
+<td>APO13 Security management</td>
+<td>5-layer defense · OWASP mapping · .gitignore</td>
+<td style="text-align: center;">L2</td>
+</tr>
+<tr class="odd">
+<td>BAI</td>
+<td>BAI03 Solutions build</td>
+<td>Clean architecture · Swagger-first · Git tags</td>
+<td style="text-align: center;">L3</td>
+</tr>
+<tr class="even">
+<td>BAI</td>
+<td>BAI10 Configuration mgmt</td>
+<td>appsettings excluded · schema versioning in Git</td>
+<td style="text-align: center;">L3</td>
+</tr>
+<tr class="odd">
+<td>DSS</td>
+<td>DSS05 Security services</td>
+<td>Parameterized SPs · Windows Auth · no raw SQL</td>
+<td style="text-align: center;">L3</td>
+</tr>
+<tr class="even">
+<td>DSS</td>
+<td>DSS06 Process controls</td>
+<td>TRY/CATCH · ROLLBACK · idempotent MERGE</td>
+<td style="text-align: center;">L2</td>
+</tr>
+<tr class="odd">
+<td>MEA</td>
+<td>MEA01 Performance monitor</td>
+<td>KPI SP · semaphore dashboard · ML scoring</td>
+<td style="text-align: center;">L2</td>
+</tr>
+<tr class="even">
+<td>MEA</td>
+<td>MEA02 Internal controls</td>
+<td>AuditLog trigger · footing SP · cross-foot verification</td>
+<td style="text-align: center;">L3</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="audit-procedures-isa-pcaob" class="level2">
+<h2 class="anchored" data-anchor-id="audit-procedures-isa-pcaob">15. Audit procedures (ISA / PCAOB)</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Assertion</th>
+<th>Method</th>
+<th>SQL implementation</th>
+<th style="text-align: center;">Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Completeness</td>
+<td>No orphan records</td>
+<td>FK_Loans_Tenants</td>
+<td style="text-align: center;">✅ Auto</td>
+</tr>
+<tr class="even">
+<td>Existence</td>
+<td>Every change recorded</td>
+<td>trg_Loans_Audit (INSERT/UPDATE/DELETE)</td>
+<td style="text-align: center;">✅ Auto</td>
+</tr>
+<tr class="odd">
+<td>Accuracy</td>
+<td>Domain constraints</td>
+<td>CHK_Loans_LTV, CHK_Loans_DTI</td>
+<td style="text-align: center;">✅ Auto</td>
+</tr>
+<tr class="even">
+<td>Cutoff</td>
+<td>UTC timestamps</td>
+<td>DEFAULT GETUTCDATE() on all tables</td>
+<td style="text-align: center;">✅ Auto</td>
+</tr>
+<tr class="odd">
+<td>Valuation</td>
+<td>LTV computed at insert</td>
+<td>SP calculates LTV = Amount/PropValue</td>
+<td style="text-align: center;">✅ Auto</td>
+</tr>
+<tr class="even">
+<td>Classification</td>
+<td>Restricted types</td>
+<td>LoanType IN (‘Conventional’,‘FHA’,‘VA’,‘USDA’)</td>
+<td style="text-align: center;">✅ Auto</td>
+</tr>
+<tr class="odd">
+<td>Uniqueness</td>
+<td>No duplicates</td>
+<td>UQ_Loans_External (TenantId, ExternalLoanId)</td>
+<td style="text-align: center;">✅ Auto</td>
+</tr>
+<tr class="even">
+<td>Rights &amp; obligations</td>
+<td>Tenant isolation</td>
+<td>RLS policy + SESSION_CONTEXT + JWT claims</td>
+<td style="text-align: center;">✅ Auto</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="access-control-who-sees-what" class="level2">
+<h2 class="anchored" data-anchor-id="access-control-who-sees-what">16. Access control — who sees what</h2>
+<section id="row-level-security" class="level3">
+<h3 class="anchored" data-anchor-id="row-level-security">16.1 Row-Level Security</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">FUNCTION</span> dbo.fn_TenantAccess(@TenantId <span class="dt">INT</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>RETURNS <span class="kw">TABLE</span> <span class="kw">WITH</span> SCHEMABINDING</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">AS</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">RETURN</span> <span class="kw">SELECT</span> <span class="dv">1</span> <span class="kw">AS</span> Ok</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> @TenantId <span class="op">=</span> <span class="fu">CAST</span>(SESSION_CONTEXT(N<span class="st">'TenantId'</span>) <span class="kw">AS</span> <span class="dt">INT</span>);</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>GO</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> SECURITY POLICY TenantFilter</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="kw">ADD</span> <span class="kw">FILTER</span> PREDICATE dbo.fn_TenantAccess(TenantId) <span class="kw">ON</span> dbo.Loans</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> (STATE <span class="op">=</span> <span class="kw">ON</span>);</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>GO</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co">-- .NET middleware sets this on every request:</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co">-- EXEC sp_set_session_context @key=N'TenantId', @value=@TenantId;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="access-matrix" class="level3">
+<h3 class="anchored" data-anchor-id="access-matrix">16.2 Access matrix</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Role</th>
+<th style="text-align: center;">FNB data</th>
+<th style="text-align: center;">MMC data</th>
+<th style="text-align: center;">AuditLog</th>
+<th style="text-align: center;">Budget</th>
+<th style="text-align: center;">Admin</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Auditor (FNB)</td>
+<td style="text-align: center;">✅ Read</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">Own actions</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Auditor (MMC)</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅ Read</td>
+<td style="text-align: center;">Own actions</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Manager (FNB)</td>
+<td style="text-align: center;">✅ Read+Write</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">All FNB</td>
+<td style="text-align: center;">✅ Read</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Director QC</td>
+<td style="text-align: center;">✅ All</td>
+<td style="text-align: center;">✅ All</td>
+<td style="text-align: center;">✅ All</td>
+<td style="text-align: center;">✅ R+W</td>
+<td style="text-align: center;">✅</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="traceability-who-changed-what" class="level2">
+<h2 class="anchored" data-anchor-id="traceability-who-changed-what">17. Traceability — who changed what</h2>
+<section id="trigger-already-in-your-schema-section-2" class="level3">
+<h3 class="anchored" data-anchor-id="trigger-already-in-your-schema-section-2">17.1 Trigger (already in your schema — section 2)</h3>
+<p>The <code>trg_Loans_Audit</code> trigger captures: - <strong>Who:</strong> <code>SYSTEM_USER</code> (the Windows/SQL login) - <strong>When:</strong> <code>GETUTCDATE()</code> (server-controlled, cannot be backdated) - <strong>What:</strong> table name, operation, record ID - <strong>Old values:</strong> from <code>deleted</code> pseudo-table - <strong>New values:</strong> from <code>inserted</code> pseudo-table</p>
+</section>
+<section id="audit-trail-query" class="level3">
+<h3 class="anchored" data-anchor-id="audit-trail-query">17.2 Audit trail query</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">OR</span> <span class="kw">ALTER</span> <span class="kw">PROCEDURE</span> dbo.usp_AuditTrail</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    @LoanId <span class="dt">INT</span>,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    @DaysBack <span class="dt">INT</span> <span class="op">=</span> <span class="dv">30</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="kw">AS</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="cf">BEGIN</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SET</span> NOCOUNT <span class="kw">ON</span>;</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>        AuditId,</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>        Operation,</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>        OldValues,</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>        NewValues,</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>        UserIdentity,</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>        <span class="dt">Timestamp</span>,</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>        <span class="fu">LAG</span>(<span class="dt">Timestamp</span>) <span class="kw">OVER</span>(<span class="kw">ORDER</span> <span class="kw">BY</span> <span class="dt">Timestamp</span>) <span class="kw">AS</span> PreviousChange,</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>        DATEDIFF(<span class="kw">MINUTE</span>,</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>            <span class="fu">LAG</span>(<span class="dt">Timestamp</span>) <span class="kw">OVER</span>(<span class="kw">ORDER</span> <span class="kw">BY</span> <span class="dt">Timestamp</span>),</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>            <span class="dt">Timestamp</span>) <span class="kw">AS</span> MinutesSinceLast,</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>        <span class="fu">ROW_NUMBER</span>() <span class="kw">OVER</span>(<span class="kw">ORDER</span> <span class="kw">BY</span> <span class="dt">Timestamp</span> <span class="kw">DESC</span>) <span class="kw">AS</span> ChangeSequence</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> dbo.AuditLog</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> RecordId <span class="op">=</span> @LoanId</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>      <span class="kw">AND</span> TableName <span class="op">=</span> <span class="st">'Loans'</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>      <span class="kw">AND</span> <span class="dt">Timestamp</span> <span class="op">&gt;=</span> DATEADD(<span class="dt">DAY</span>, <span class="op">-</span>@DaysBack, GETUTCDATE())</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="dt">Timestamp</span> <span class="kw">DESC</span>;</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a><span class="cf">END</span>;</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>GO</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="anti-tampering-controls" class="level3">
+<h3 class="anchored" data-anchor-id="anti-tampering-controls">17.3 Anti-tampering controls</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Threat</th>
+<th>Protection</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Auditor changes Fail → Pass</td>
+<td>Trigger records old=Fail, new=Pass, who, when</td>
+</tr>
+<tr class="even">
+<td>Someone deletes AuditLog rows</td>
+<td><code>DENY DELETE ON dbo.AuditLog TO PUBLIC</code></td>
+</tr>
+<tr class="odd">
+<td>DBA disables trigger</td>
+<td>SQL Agent checks <code>sys.triggers</code> hourly</td>
+</tr>
+<tr class="even">
+<td>Someone backdates timestamp</td>
+<td><code>GETUTCDATE()</code> is server-controlled</td>
+</tr>
+<tr class="odd">
+<td>Bulk UPDATE to erase evidence</td>
+<td>Each row generates a separate AuditLog entry</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="risk-matrix-every-project-phase" class="level2">
+<h2 class="anchored" data-anchor-id="risk-matrix-every-project-phase">18. Risk matrix — every project phase</h2>
+<section id="heat-map" class="level3">
+<h3 class="anchored" data-anchor-id="heat-map">18.1 Heat map</h3>
+<pre><code>                    ║ Negligible │  Low   │ Medium │  High  │ Critical ║
+ ═══════════════════╬════════════╪════════╪════════╪════════╪══════════║
+ Very high          ║    Med     │  High  │  Crit  │  Crit  │   Crit   ║
+ High               ║    Med     │  Med   │  High  │R1 R10  │   Crit   ║
+ Medium             ║    Low     │  Med   │R4 R12  │ R2 R13 │   Crit   ║
+ Low                ║    Low     │  Low   │ R5 R9  │R3 R11  │R7 R16   ║
+ Very low           ║    Low     │  Low   │  Low   │  R6    │   High   ║</code></pre>
+</section>
+<section id="full-risk-register-by-phase" class="level3">
+<h3 class="anchored" data-anchor-id="full-risk-register-by-phase">18.2 Full risk register by phase</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 15%">
+<col style="width: 9%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 9%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Phase</th>
+<th style="text-align: center;">ID</th>
+<th>Risk</th>
+<th style="text-align: center;">Prob</th>
+<th style="text-align: center;">Impact</th>
+<th style="text-align: center;">Score</th>
+<th>Plan B</th>
+<th>Plan C</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Schema</strong></td>
+<td style="text-align: center;">R8</td>
+<td>FK wrong / missing CHECK</td>
+<td style="text-align: center;">Med</td>
+<td style="text-align: center;">High</td>
+<td style="text-align: center;">12</td>
+<td>DBA code review before deploy</td>
+<td>tSQLt unit tests on staging</td>
+</tr>
+<tr class="even">
+<td><strong>Schema</strong></td>
+<td style="text-align: center;">R9</td>
+<td>Missing index</td>
+<td style="text-align: center;">Low</td>
+<td style="text-align: center;">Med</td>
+<td style="text-align: center;">6</td>
+<td>Query plan analysis pre-release</td>
+<td>Add covering indexes post-deploy</td>
+</tr>
+<tr class="odd">
+<td><strong>Stored proc</strong></td>
+<td style="text-align: center;">R10</td>
+<td>Bug in LTV calculation</td>
+<td style="text-align: center;">High</td>
+<td style="text-align: center;">High</td>
+<td style="text-align: center;">16</td>
+<td>Run SP on staging with test data</td>
+<td>tSQLt automated regression</td>
+</tr>
+<tr class="even">
+<td><strong>Stored proc</strong></td>
+<td style="text-align: center;">R11</td>
+<td>Deadlock on concurrent writes</td>
+<td style="text-align: center;">Low</td>
+<td style="text-align: center;">High</td>
+<td style="text-align: center;">8</td>
+<td>SET NOCOUNT ON + short txn</td>
+<td>NOLOCK on read-only queries</td>
+</tr>
+<tr class="odd">
+<td><strong>Migration</strong></td>
+<td style="text-align: center;">R12</td>
+<td>Legacy format mismatch</td>
+<td style="text-align: center;">High</td>
+<td style="text-align: center;">Med</td>
+<td style="text-align: center;">12</td>
+<td>Staging table + MERGE TRY/CATCH</td>
+<td>Error log per row, never direct INSERT</td>
+</tr>
+<tr class="even">
+<td><strong>Migration</strong></td>
+<td style="text-align: center;">R13</td>
+<td>Duplicate loans in source</td>
+<td style="text-align: center;">Med</td>
+<td style="text-align: center;">High</td>
+<td style="text-align: center;">12</td>
+<td>UNIQUE constraint rejects dupes</td>
+<td>Pre-migration dedup script</td>
+</tr>
+<tr class="odd">
+<td><strong>API deploy</strong></td>
+<td style="text-align: center;">R14</td>
+<td>Swagger breaks</td>
+<td style="text-align: center;">Med</td>
+<td style="text-align: center;">Med</td>
+<td style="text-align: center;">9</td>
+<td>Blue-green deployment</td>
+<td>Git checkout previous tag</td>
+</tr>
+<tr class="even">
+<td><strong>API deploy</strong></td>
+<td style="text-align: center;">R15</td>
+<td>JWT misconfigured</td>
+<td style="text-align: center;">Low</td>
+<td style="text-align: center;">High</td>
+<td style="text-align: center;">8</td>
+<td>Integration tests in CI</td>
+<td>Disable auth temporarily</td>
+</tr>
+<tr class="odd">
+<td><strong>Trigger</strong></td>
+<td style="text-align: center;">R16</td>
+<td>Trigger disabled by accident</td>
+<td style="text-align: center;">Low</td>
+<td style="text-align: center;">Crit</td>
+<td style="text-align: center;">10</td>
+<td>SQL Agent hourly check</td>
+<td>DENY ALTER on trigger</td>
+</tr>
+<tr class="even">
+<td><strong>Backup</strong></td>
+<td style="text-align: center;">R18</td>
+<td>Backup corrupted</td>
+<td style="text-align: center;">Low</td>
+<td style="text-align: center;">Crit</td>
+<td style="text-align: center;">10</td>
+<td>Monthly restore test on staging</td>
+<td>Geo-redundant Azure Blob</td>
+</tr>
+<tr class="odd">
+<td><strong>Backup</strong></td>
+<td style="text-align: center;">R19</td>
+<td>Ransomware</td>
+<td style="text-align: center;">Low</td>
+<td style="text-align: center;">Crit</td>
+<td style="text-align: center;">10</td>
+<td>Off-site backup (Azure GRS)</td>
+<td>Air-gapped backup</td>
+</tr>
+<tr class="even">
+<td><strong>Credentials</strong></td>
+<td style="text-align: center;">R1</td>
+<td>IAM keys exposed</td>
+<td style="text-align: center;">High</td>
+<td style="text-align: center;">High</td>
+<td style="text-align: center;">16</td>
+<td>Rotate immediately + MFA</td>
+<td>Switch to IAM roles</td>
+</tr>
+<tr class="odd">
+<td><strong>Credentials</strong></td>
+<td style="text-align: center;">R2</td>
+<td>sa login weak password</td>
+<td style="text-align: center;">Med</td>
+<td style="text-align: center;">High</td>
+<td style="text-align: center;">12</td>
+<td>Disable sa → Windows Auth</td>
+<td>Azure Key Vault</td>
+</tr>
+<tr class="even">
+<td><strong>API security</strong></td>
+<td style="text-align: center;">R4</td>
+<td>No JWT on endpoints</td>
+<td style="text-align: center;">Med</td>
+<td style="text-align: center;">Med</td>
+<td style="text-align: center;">9</td>
+<td>JWT middleware from day 1</td>
+<td>[Authorize] on all controllers</td>
+</tr>
+<tr class="odd">
+<td><strong>Isolation</strong></td>
+<td style="text-align: center;">R5</td>
+<td>Tenant sees other’s data</td>
+<td style="text-align: center;">Low</td>
+<td style="text-align: center;">Med</td>
+<td style="text-align: center;">6</td>
+<td>RLS per TenantId</td>
+<td>API-level filter backup</td>
+</tr>
+<tr class="even">
+<td><strong>Transport</strong></td>
+<td style="text-align: center;">R3</td>
+<td>No TLS in production</td>
+<td style="text-align: center;">Low</td>
+<td style="text-align: center;">High</td>
+<td style="text-align: center;">8</td>
+<td>Kestrel HTTPS + HSTS</td>
+<td>Let’s Encrypt cert</td>
+</tr>
+<tr class="odd">
+<td><strong>PII</strong></td>
+<td style="text-align: center;">R7</td>
+<td>API exposes PII</td>
+<td style="text-align: center;">Low</td>
+<td style="text-align: center;">Crit</td>
+<td style="text-align: center;">10</td>
+<td>DTO projection only</td>
+<td>Audit API responses weekly</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="disaster-recovery-plans-b-and-c" class="level2">
+<h2 class="anchored" data-anchor-id="disaster-recovery-plans-b-and-c">19. Disaster recovery — Plans B and C</h2>
+<section id="scenarios" class="level3">
+<h3 class="anchored" data-anchor-id="scenarios">19.1 Scenarios</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Scenario</th>
+<th>Impact</th>
+<th>Plan B</th>
+<th>Plan C</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>SQL backup fails</td>
+<td>AuditLog lost = compliance breach</td>
+<td>Full daily + diff 4hr + tlog 15min (RPO=15min)</td>
+<td>Always On AG (RTO&lt;30s)</td>
+</tr>
+<tr class="even">
+<td>Data corruption</td>
+<td>Wrong reports, footings don’t reconcile</td>
+<td>DBCC CHECKDB daily</td>
+<td>Restore → usp_FootingVerification</td>
+</tr>
+<tr class="odd">
+<td>API crashes</td>
+<td>Auditors can’t work</td>
+<td>Health check + auto-restart</td>
+<td>Blue-green: old version stays live</td>
+</tr>
+<tr class="even">
+<td>Trigger disabled</td>
+<td>Audit trail has gaps</td>
+<td>SQL Agent checks hourly</td>
+<td>DENY ALTER to non-admin</td>
+</tr>
+<tr class="odd">
+<td>Ransomware</td>
+<td>Everything encrypted</td>
+<td>Azure Blob GRS (off-site)</td>
+<td>Air-gapped backup</td>
+</tr>
+<tr class="even">
+<td>Credentials leaked</td>
+<td>Unauthorized DB access</td>
+<td>Rotate + revoke immediately</td>
+<td>All secrets → Key Vault</td>
+</tr>
+<tr class="odd">
+<td>Bad SP deploy</td>
+<td>Wrong calculations</td>
+<td>Git tag rollback</td>
+<td>Staging DB with test suite</td>
+</tr>
+<tr class="even">
+<td>Performance crash</td>
+<td>Timeouts at 1M+ loans</td>
+<td>Indexes + OFFSET/FETCH</td>
+<td>Partition by ClosingDate year</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rollback-procedure" class="level3">
+<h3 class="anchored" data-anchor-id="rollback-procedure">19.2 Rollback procedure</h3>
+<pre><code> 1. STOP the API: Stop-Process -Name "NeboAudit.Api" -Force
+ 2. IDENTIFY last valid backup
+ 3. RESTORE: RESTORE DATABASE NeboAudit FROM DISK = 'path'
+ 4. VERIFY: DBCC CHECKDB('NeboAudit')
+ 5. RECONCILE: EXEC usp_FootingVerification
+ 6. RE-APPLY transaction logs from failure point
+ 7. CHECK: SELECT MAX(AuditId) FROM AuditLog — no gaps
+ 8. RESTART: cd NeboAudit.Api; dotnet run
+ 9. NOTIFY auditors of downtime
+10. POST-MORTEM: document root cause + corrective action</code></pre>
+<hr>
+</section>
+</section>
+<section id="competitive-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="competitive-analysis">20. Competitive analysis</h2>
+<section id="nebo-vs.-the-market" class="level3">
+<h3 class="anchored" data-anchor-id="nebo-vs.-the-market">20.1 Nebo vs.&nbsp;the market</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Dimension</th>
+<th>Nebo (MetaSource)</th>
+<th>ACES</th>
+<th>LoanLogics</th>
+<th>Opus CMC</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Founded</td>
+<td>1993</td>
+<td>1994</td>
+<td>2005</td>
+<td>2005</td>
+</tr>
+<tr class="even">
+<td>Clients</td>
+<td>800+</td>
+<td>70% top 20 lenders</td>
+<td>Mid-market</td>
+<td>Capital markets</td>
+</tr>
+<tr class="odd">
+<td>AI/ML</td>
+<td>ML.NET (building)</td>
+<td>ACES Intelligence (live)</td>
+<td>LoanHD analytics</td>
+<td>Basic</td>
+</tr>
+<tr class="even">
+<td>Core tech</td>
+<td>.NET 9 + SQL Server</td>
+<td>Proprietary cloud</td>
+<td>Cloud-based</td>
+<td>Legacy</td>
+</tr>
+<tr class="odd">
+<td>Key product</td>
+<td>Nebo + QLink + QReview</td>
+<td>ACES Analytics + AI</td>
+<td>LoanHD</td>
+<td>Due diligence</td>
+</tr>
+<tr class="even">
+<td>Pricing</td>
+<td>Per audit fee</td>
+<td>SaaS license ($$)</td>
+<td>Per loan + platform</td>
+<td>Project-based</td>
+</tr>
+<tr class="odd">
+<td>Strength</td>
+<td>Turn time, .NET ML, trail</td>
+<td>Best AI, market leader</td>
+<td>Doc classification</td>
+<td>Investor focus</td>
+</tr>
+<tr class="even">
+<td>Weakness vs Nebo</td>
+<td>—</td>
+<td>Expensive, less custom</td>
+<td>Acquired by PE</td>
+<td>Not tech-forward</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="nebo-advantages" class="level3">
+<h3 class="anchored" data-anchor-id="nebo-advantages">20.2 Nebo advantages</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Advantage</th>
+<th>Why it matters</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ML inside API (no extra infra)</td>
+<td>ACES charges $15-25/loan extra; ML.NET = $0 marginal</td>
+</tr>
+<tr class="even">
+<td>Audit trail for ML decisions</td>
+<td>Every prediction in dbo.MLPredictions — regulator traceable</td>
+</tr>
+<tr class="odd">
+<td>SQL Server native (RLS, triggers, computed cols)</td>
+<td>No app-level workarounds needed</td>
+</tr>
+<tr class="even">
+<td>Local LLM for PII safety</td>
+<td>Ollama keeps mortgage data on-premises</td>
+</tr>
+<tr class="odd">
+<td>.NET ecosystem</td>
+<td>ML.NET, EF Core, SignalR, JWT — all first-party Microsoft</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="interview-pitch" class="level2">
+<h2 class="anchored" data-anchor-id="interview-pitch">21. Interview pitch</h2>
+<blockquote class="blockquote">
+<p>“I built the complete Nebo audit platform with 1,000 loans, two tenants, risk scoring, and cross-foot verified footings. The SQL Server layer includes a Pareto analysis SP, anomaly detection, GROUPING SETS for automatic footings, and MERGE upserts with LTV validation.</p>
+<p>Every change is traceable: the audit trigger captures who, when, old value, new value. Row-Level Security ensures FNB never sees MMC’s data. The JWT claims carry the TenantId, and the API middleware sets SESSION_CONTEXT on every request.</p>
+<p>The Pareto analysis shows the top 3 root causes drive ~70% of penalties. Two stored procedures — LTV validation and COE pre-check — would save over a million dollars for a $7K investment.</p>
+<p>I also built a RAG chatbot using Ollama so auditors can query loans and regulations in natural language. Everything runs locally — SQL Server, .NET API, Ollama, ChromaDB — ready to demo.”</p>
+</blockquote>
+<hr>
+</section>
+<section id="checklist-monday-15-jun-3-pm-mt" class="level2">
+<h2 class="anchored" data-anchor-id="checklist-monday-15-jun-3-pm-mt">Checklist — Monday 15 Jun, 3 PM MT</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Morning checks</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Get-Service</span> <span class="op">-</span>Name <span class="st">"MSSQLSERVER"</span>                              <span class="co"># SQL Server running</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>sqlcmd <span class="op">-</span>Q <span class="st">"SELECT COUNT(*) FROM NeboAudit.dbo.Loans"</span>        <span class="co"># data loaded</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Start API</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cd</span> <span class="st">"C:\Dev\NeboAudit Platform\NeboAudit.Api"</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>dotnet run                                                    <span class="co"># localhost:5267</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Live demos in SSMS</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>EXEC dbo<span class="op">.</span><span class="fu">usp_GetPortfolioSummary</span> @TenantId <span class="op">=</span> <span class="dv">1</span><span class="op">;</span>             <span class="co"># FNB summary</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>EXEC dbo<span class="op">.</span><span class="fu">usp_ParetoAnalysis</span><span class="op">;</span>                                  <span class="co"># root causes</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>EXEC dbo<span class="op">.</span><span class="fu">usp_FootingVerification</span><span class="op">;</span>                             <span class="co"># cross-foot</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>EXEC dbo<span class="op">.</span><span class="fu">usp_KPIDashboard</span><span class="op">;</span>                                    <span class="co"># semaphores</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>EXEC dbo<span class="op">.</span><span class="fu">usp_AuditTrail</span> @LoanId <span class="op">=</span> <span class="dv">1</span><span class="op">,</span> @DaysBack <span class="op">=</span> <span class="dv">365</span><span class="op">;</span>       <span class="co"># traceability</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+<p><em>Secciones 11–21 para agregar a NeboAudit_Guia_Completa.md</em> <em>Luis Carreño · lcarrenoy@uni.pe · 15/06/2026</em></p>
+
+
+<!-- -->
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/lcarrenoy\.github\.io\/NeboAudit");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">## 11. The mortgage process — 3 phases</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co">### Phase 1 — The mortgage loan</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co">```</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co">CLIENT wants to buy a $400K house</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co">        │</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co">        ▼</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="co">Goes to First National Bank (FNB)</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="co">        │</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="co">        ▼</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="an">Bank evaluates:</span><span class="co"> income, debts, credit history</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="co">        │</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="co">        ▼</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="co">Bank approves $360K loan</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="co">        │</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="co">        ▼</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a><span class="co">  Loan amount:    $360,000</span></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a><span class="co">  Property value: $400,000</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="co">  LTV:            $360K / $400K = 90.0%</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a><span class="co">  DTI:            $3K debts / $8K income = 37.5%</span></span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a><span class="co">        │</span></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a><span class="co">        ▼</span></span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a><span class="co">  ┌──────────────┬──────────┬──────────┬─────────────────────┐</span></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a><span class="co">  │ Type         │ Max LTV  │ Max DTI  │ Guarantor           │</span></span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a><span class="co">  ├──────────────┼──────────┼──────────┼─────────────────────┤</span></span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a><span class="co">  │ FHA          │ 96.5%    │ 43%      │ Federal government  │</span></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a><span class="co">  │ VA           │ 100%     │ 41%      │ Dept of Veterans    │</span></span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a><span class="co">  │ Conventional │ 95%      │ 45%      │ Fannie Mae (private)│</span></span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a><span class="co">  │ USDA         │ 100%     │ 41%      │ USDA Rural Dev      │</span></span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a><span class="co">  └──────────────┴──────────┴──────────┴─────────────────────┘</span></span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a><span class="co">```</span></span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a><span class="co">**Why these rules exist:** Before 2008, banks lent to anyone (NINJA loans: No Income, No Job, No Assets). The system collapsed. Lehman Brothers failed. $700B taxpayer bailout. Dodd-Frank Act (2010) created the CFPB and mandated audits.</span></span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a><span class="co">### Phase 2 — The audit (where Nebo / MetaSource enters)</span></span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a><span class="co">```</span></span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a><span class="co">Bank CANNOT audit its own loans — conflict of interest</span></span>
+<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a><span class="co">        │</span></span>
+<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a><span class="co">        ▼</span></span>
+<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a><span class="co">Bank hires MetaSource (800+ clients, 30+ years)</span></span>
+<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a><span class="co">        │</span></span>
+<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a><span class="co">        ▼</span></span>
+<span id="cb14-47"><a href="#cb14-47" aria-hidden="true" tabindex="-1"></a><span class="an">MetaSource uses NEBO platform to verify each loan:</span></span>
+<span id="cb14-48"><a href="#cb14-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-49"><a href="#cb14-49" aria-hidden="true" tabindex="-1"></a><span class="co">  ┌──────────┬──────────────────────────────────┬────────┐</span></span>
+<span id="cb14-50"><a href="#cb14-50" aria-hidden="true" tabindex="-1"></a><span class="co">  │ Framework│ Check item                       │ Result │</span></span>
+<span id="cb14-51"><a href="#cb14-51" aria-hidden="true" tabindex="-1"></a><span class="co">  ├──────────┼──────────────────────────────────┼────────┤</span></span>
+<span id="cb14-52"><a href="#cb14-52" aria-hidden="true" tabindex="-1"></a><span class="co">  │ TRID     │ Loan Estimate delivered ≤ 3 days │ Pass   │</span></span>
+<span id="cb14-53"><a href="#cb14-53" aria-hidden="true" tabindex="-1"></a><span class="co">  │ FHA      │ LTV ≤ 96.5%?                     │ Fail   │</span></span>
+<span id="cb14-54"><a href="#cb14-54" aria-hidden="true" tabindex="-1"></a><span class="co">  │ VA       │ COE verified in VBMS?             │ Fail   │</span></span>
+<span id="cb14-55"><a href="#cb14-55" aria-hidden="true" tabindex="-1"></a><span class="co">  │ FNMA     │ DTI ≤ 45%?                        │ Pass   │</span></span>
+<span id="cb14-56"><a href="#cb14-56" aria-hidden="true" tabindex="-1"></a><span class="co">  │ USDA     │ Property in eligible rural area?  │ Pass   │</span></span>
+<span id="cb14-57"><a href="#cb14-57" aria-hidden="true" tabindex="-1"></a><span class="co">  └──────────┴──────────────────────────────────┴────────┘</span></span>
+<span id="cb14-58"><a href="#cb14-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-59"><a href="#cb14-59" aria-hidden="true" tabindex="-1"></a><span class="an">3 results:</span></span>
+<span id="cb14-60"><a href="#cb14-60" aria-hidden="true" tabindex="-1"></a><span class="co">  🟢 Pass   — compliant</span></span>
+<span id="cb14-61"><a href="#cb14-61" aria-hidden="true" tabindex="-1"></a><span class="co">  🔴 Fail   — penalty: $5K–$250K fine OR loan repurchase (100%)</span></span>
+<span id="cb14-62"><a href="#cb14-62" aria-hidden="true" tabindex="-1"></a><span class="co">  🟡 Review — needs manager verification</span></span>
+<span id="cb14-63"><a href="#cb14-63" aria-hidden="true" tabindex="-1"></a><span class="co">```</span></span>
+<span id="cb14-64"><a href="#cb14-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-65"><a href="#cb14-65" aria-hidden="true" tabindex="-1"></a><span class="co">### Phase 3 — Your role as Database SME</span></span>
+<span id="cb14-66"><a href="#cb14-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-67"><a href="#cb14-67" aria-hidden="true" tabindex="-1"></a><span class="co">```</span></span>
+<span id="cb14-68"><a href="#cb14-68" aria-hidden="true" tabindex="-1"></a><span class="an">YOU build the data layer:</span></span>
+<span id="cb14-69"><a href="#cb14-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-70"><a href="#cb14-70" aria-hidden="true" tabindex="-1"></a><span class="co">  dbo.Loans               → every mortgage record</span></span>
+<span id="cb14-71"><a href="#cb14-71" aria-hidden="true" tabindex="-1"></a><span class="co">  dbo.AuditLog            → immutable change trail (who, when, old, new)</span></span>
+<span id="cb14-72"><a href="#cb14-72" aria-hidden="true" tabindex="-1"></a><span class="co">  Stored procedures       → pass rates, anomalies, footings, forecasts</span></span>
+<span id="cb14-73"><a href="#cb14-73" aria-hidden="true" tabindex="-1"></a><span class="co">  .NET 9 API              → Swagger endpoints for auditors</span></span>
+<span id="cb14-74"><a href="#cb14-74" aria-hidden="true" tabindex="-1"></a><span class="co">  ML.NET                  → risk scoring inside the API</span></span>
+<span id="cb14-75"><a href="#cb14-75" aria-hidden="true" tabindex="-1"></a><span class="co">  trg_Loans_Audit         → trigger captures every mutation</span></span>
+<span id="cb14-76"><a href="#cb14-76" aria-hidden="true" tabindex="-1"></a><span class="co">  RLS (Row-Level Security)→ FNB never sees MMC data</span></span>
+<span id="cb14-77"><a href="#cb14-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-78"><a href="#cb14-78" aria-hidden="true" tabindex="-1"></a><span class="co">  DBA approves your schemas → you deploy → auditors use → reports generated</span></span>
+<span id="cb14-79"><a href="#cb14-79" aria-hidden="true" tabindex="-1"></a><span class="co">```</span></span>
+<span id="cb14-80"><a href="#cb14-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-81"><a href="#cb14-81" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb14-82"><a href="#cb14-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-83"><a href="#cb14-83" aria-hidden="true" tabindex="-1"></a><span class="fu">## 12. Penalty analysis and Pareto</span></span>
+<span id="cb14-84"><a href="#cb14-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-85"><a href="#cb14-85" aria-hidden="true" tabindex="-1"></a><span class="fu">### 12.1 Penalty structure by regulation</span></span>
+<span id="cb14-86"><a href="#cb14-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-87"><a href="#cb14-87" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Framework <span class="pp">|</span> Violation <span class="pp">|</span> Penalty <span class="pp">|</span> Worst case <span class="pp">|</span></span>
+<span id="cb14-88"><a href="#cb14-88" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|</span></span>
+<span id="cb14-89"><a href="#cb14-89" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> TRID <span class="pp">|</span> LE late (&gt; 3 business days) <span class="pp">|</span> $5,000–$25,000 <span class="pp">|</span> $1M consent order CFPB (pattern) <span class="pp">|</span></span>
+<span id="cb14-90"><a href="#cb14-90" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> TRID <span class="pp">|</span> CD late (&lt; 3 days before close) <span class="pp">|</span> $25,000–$100,000 <span class="pp">|</span> Can invalidate closing <span class="pp">|</span></span>
+<span id="cb14-91"><a href="#cb14-91" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> FHA <span class="pp">|</span> LTV exceeds 96.5% <span class="pp">|</span> Loan repurchase (100%) <span class="pp">|</span> Loss of FHA lender status <span class="pp">|</span></span>
+<span id="cb14-92"><a href="#cb14-92" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> FHA <span class="pp">|</span> MIP rate incorrect <span class="pp">|</span> $35,000 + difference to FHA fund <span class="pp">|</span> HUD audit of all FHA loans <span class="pp">|</span></span>
+<span id="cb14-93"><a href="#cb14-93" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> FHA <span class="pp">|</span> DTI &gt; 43% without comp. factors <span class="pp">|</span> $35,000 or repurchase <span class="pp">|</span> HUD OIG referral <span class="pp">|</span></span>
+<span id="cb14-94"><a href="#cb14-94" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> VA <span class="pp">|</span> COE not verified in VBMS <span class="pp">|</span> $250,000 + repurchase <span class="pp">|</span> FBI referral if fraud <span class="pp">|</span></span>
+<span id="cb14-95"><a href="#cb14-95" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> VA <span class="pp">|</span> Funding fee wrong <span class="pp">|</span> $50,000 + refund to veteran <span class="pp">|</span> Double penalty if exempt charged <span class="pp">|</span></span>
+<span id="cb14-96"><a href="#cb14-96" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> FNMA <span class="pp">|</span> DTI &gt; 45% <span class="pp">|</span> Loan repurchase by Fannie Mae <span class="pp">|</span> Loss of Fannie Mae seller status <span class="pp">|</span></span>
+<span id="cb14-97"><a href="#cb14-97" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> USDA <span class="pp">|</span> Property not in rural area <span class="pp">|</span> Loan repurchase + subsidy return <span class="pp">|</span> USDA program ban <span class="pp">|</span></span>
+<span id="cb14-98"><a href="#cb14-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-99"><a href="#cb14-99" aria-hidden="true" tabindex="-1"></a><span class="fu">### 12.2 Penalty by tenant (from your 1,000-loan data)</span></span>
+<span id="cb14-100"><a href="#cb14-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-101"><a href="#cb14-101" aria-hidden="true" tabindex="-1"></a>Run this in SSMS to get the real numbers from your data:</span>
+<span id="cb14-102"><a href="#cb14-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-103"><a href="#cb14-103" aria-hidden="true" tabindex="-1"></a><span class="in">```sql</span></span>
+<span id="cb14-104"><a href="#cb14-104" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb14-105"><a href="#cb14-105" aria-hidden="true" tabindex="-1"></a>    T<span class="ch">.</span>Name <span class="kw">AS</span> Tenant,</span>
+<span id="cb14-106"><a href="#cb14-106" aria-hidden="true" tabindex="-1"></a>    <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> TotalLoans,</span>
+<span id="cb14-107"><a href="#cb14-107" aria-hidden="true" tabindex="-1"></a>    <span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> L<span class="ch">.</span>IsFail <span class="op">=</span> <span class="dv">1</span> <span class="cf">THEN</span> <span class="dv">1</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>) <span class="kw">AS</span> Fails,</span>
+<span id="cb14-108"><a href="#cb14-108" aria-hidden="true" tabindex="-1"></a>    <span class="fu">CAST</span>(<span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> L<span class="ch">.</span>IsFail <span class="op">=</span> <span class="dv">1</span> <span class="cf">THEN</span> <span class="dv">1</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>) <span class="op">*</span> <span class="fl">100.0</span></span>
+<span id="cb14-109"><a href="#cb14-109" aria-hidden="true" tabindex="-1"></a>         <span class="op">/</span> <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> <span class="dt">DECIMAL</span>(<span class="dv">5</span>,<span class="dv">1</span>)) <span class="kw">AS</span> DefectPct,</span>
+<span id="cb14-110"><a href="#cb14-110" aria-hidden="true" tabindex="-1"></a>    <span class="fu">SUM</span>(L<span class="ch">.</span>Penalty) <span class="kw">AS</span> TotalPenalty,</span>
+<span id="cb14-111"><a href="#cb14-111" aria-hidden="true" tabindex="-1"></a>    <span class="fu">SUM</span>(L<span class="ch">.</span>LoanAmount) <span class="kw">AS</span> TotalVolume</span>
+<span id="cb14-112"><a href="#cb14-112" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> dbo<span class="ch">.</span>Loans L</span>
+<span id="cb14-113"><a href="#cb14-113" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> dbo<span class="ch">.</span>Tenants T <span class="kw">ON</span> L<span class="ch">.</span>TenantId <span class="op">=</span> T<span class="ch">.</span>TenantId</span>
+<span id="cb14-114"><a href="#cb14-114" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> T<span class="ch">.</span>Name</span>
+<span id="cb14-115"><a href="#cb14-115" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> TotalPenalty <span class="kw">DESC</span>;</span>
+<span id="cb14-116"><a href="#cb14-116" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-117"><a href="#cb14-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-118"><a href="#cb14-118" aria-hidden="true" tabindex="-1"></a><span class="fu">### 12.3 Pareto — root cause stored procedure</span></span>
+<span id="cb14-119"><a href="#cb14-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-120"><a href="#cb14-120" aria-hidden="true" tabindex="-1"></a><span class="in">```sql</span></span>
+<span id="cb14-121"><a href="#cb14-121" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">OR</span> <span class="kw">ALTER</span> <span class="kw">PROCEDURE</span> dbo<span class="ch">.</span>usp_ParetoAnalysis</span>
+<span id="cb14-122"><a href="#cb14-122" aria-hidden="true" tabindex="-1"></a><span class="kw">AS</span></span>
+<span id="cb14-123"><a href="#cb14-123" aria-hidden="true" tabindex="-1"></a><span class="cf">BEGIN</span></span>
+<span id="cb14-124"><a href="#cb14-124" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SET</span> NOCOUNT <span class="kw">ON</span>;</span>
+<span id="cb14-125"><a href="#cb14-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-126"><a href="#cb14-126" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WITH</span> Causes <span class="kw">AS</span> (</span>
+<span id="cb14-127"><a href="#cb14-127" aria-hidden="true" tabindex="-1"></a>        <span class="kw">SELECT</span></span>
+<span id="cb14-128"><a href="#cb14-128" aria-hidden="true" tabindex="-1"></a>            <span class="cf">CASE</span></span>
+<span id="cb14-129"><a href="#cb14-129" aria-hidden="true" tabindex="-1"></a>                <span class="cf">WHEN</span> LoanType <span class="op">=</span> <span class="st">'VA'</span> <span class="kw">AND</span> LTV <span class="op">&gt;</span> <span class="dv">96</span></span>
+<span id="cb14-130"><a href="#cb14-130" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">THEN</span> <span class="st">'VA COE / funding fee'</span></span>
+<span id="cb14-131"><a href="#cb14-131" aria-hidden="true" tabindex="-1"></a>                <span class="cf">WHEN</span> LoanType <span class="op">=</span> <span class="st">'FHA'</span> <span class="kw">AND</span> LTV <span class="op">&gt;</span> <span class="fl">96.5</span></span>
+<span id="cb14-132"><a href="#cb14-132" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">THEN</span> <span class="st">'FHA LTV exceeds limit'</span></span>
+<span id="cb14-133"><a href="#cb14-133" aria-hidden="true" tabindex="-1"></a>                <span class="cf">WHEN</span> DTI <span class="op">&gt;</span> <span class="dv">43</span> <span class="kw">AND</span> LoanType <span class="kw">IN</span> (<span class="st">'FHA'</span>,<span class="st">'VA'</span>)</span>
+<span id="cb14-134"><a href="#cb14-134" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">THEN</span> <span class="st">'DTI exceeds limit'</span></span>
+<span id="cb14-135"><a href="#cb14-135" aria-hidden="true" tabindex="-1"></a>                <span class="cf">WHEN</span> LTV <span class="op">&gt;</span> <span class="dv">95</span></span>
+<span id="cb14-136"><a href="#cb14-136" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">THEN</span> <span class="st">'LTV warning zone'</span></span>
+<span id="cb14-137"><a href="#cb14-137" aria-hidden="true" tabindex="-1"></a>                <span class="cf">WHEN</span> AuditDays <span class="op">&gt;</span> <span class="dv">5</span></span>
+<span id="cb14-138"><a href="#cb14-138" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">THEN</span> <span class="st">'SLA breach (&gt;5 days)'</span></span>
+<span id="cb14-139"><a href="#cb14-139" aria-hidden="true" tabindex="-1"></a>                <span class="cf">ELSE</span> <span class="st">'Other compliance issue'</span></span>
+<span id="cb14-140"><a href="#cb14-140" aria-hidden="true" tabindex="-1"></a>            <span class="cf">END</span> <span class="kw">AS</span> RootCause,</span>
+<span id="cb14-141"><a href="#cb14-141" aria-hidden="true" tabindex="-1"></a>            Penalty</span>
+<span id="cb14-142"><a href="#cb14-142" aria-hidden="true" tabindex="-1"></a>        <span class="kw">FROM</span> dbo<span class="ch">.</span>Loans</span>
+<span id="cb14-143"><a href="#cb14-143" aria-hidden="true" tabindex="-1"></a>        <span class="kw">WHERE</span> IsFail <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb14-144"><a href="#cb14-144" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb14-145"><a href="#cb14-145" aria-hidden="true" tabindex="-1"></a>    Grouped <span class="kw">AS</span> (</span>
+<span id="cb14-146"><a href="#cb14-146" aria-hidden="true" tabindex="-1"></a>        <span class="kw">SELECT</span></span>
+<span id="cb14-147"><a href="#cb14-147" aria-hidden="true" tabindex="-1"></a>            RootCause,</span>
+<span id="cb14-148"><a href="#cb14-148" aria-hidden="true" tabindex="-1"></a>            <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> Fails,</span>
+<span id="cb14-149"><a href="#cb14-149" aria-hidden="true" tabindex="-1"></a>            <span class="fu">SUM</span>(Penalty) <span class="kw">AS</span> TotalPenalty,</span>
+<span id="cb14-150"><a href="#cb14-150" aria-hidden="true" tabindex="-1"></a>            <span class="fu">CAST</span>(<span class="fu">SUM</span>(Penalty) <span class="op">*</span> <span class="fl">100.0</span> <span class="op">/</span> <span class="fu">SUM</span>(<span class="fu">SUM</span>(Penalty)) OVER()</span>
+<span id="cb14-151"><a href="#cb14-151" aria-hidden="true" tabindex="-1"></a>                <span class="kw">AS</span> <span class="dt">DECIMAL</span>(<span class="dv">5</span>,<span class="dv">1</span>)) <span class="kw">AS</span> PctOfTotal</span>
+<span id="cb14-152"><a href="#cb14-152" aria-hidden="true" tabindex="-1"></a>        <span class="kw">FROM</span> Causes</span>
+<span id="cb14-153"><a href="#cb14-153" aria-hidden="true" tabindex="-1"></a>        <span class="kw">GROUP</span> <span class="kw">BY</span> RootCause</span>
+<span id="cb14-154"><a href="#cb14-154" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb14-155"><a href="#cb14-155" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span></span>
+<span id="cb14-156"><a href="#cb14-156" aria-hidden="true" tabindex="-1"></a>        RootCause,</span>
+<span id="cb14-157"><a href="#cb14-157" aria-hidden="true" tabindex="-1"></a>        Fails,</span>
+<span id="cb14-158"><a href="#cb14-158" aria-hidden="true" tabindex="-1"></a>        TotalPenalty,</span>
+<span id="cb14-159"><a href="#cb14-159" aria-hidden="true" tabindex="-1"></a>        PctOfTotal,</span>
+<span id="cb14-160"><a href="#cb14-160" aria-hidden="true" tabindex="-1"></a>        <span class="fu">SUM</span>(PctOfTotal) OVER(<span class="kw">ORDER</span> <span class="kw">BY</span> TotalPenalty <span class="kw">DESC</span>) <span class="kw">AS</span> CumulativePct,</span>
+<span id="cb14-161"><a href="#cb14-161" aria-hidden="true" tabindex="-1"></a>        <span class="cf">CASE</span></span>
+<span id="cb14-162"><a href="#cb14-162" aria-hidden="true" tabindex="-1"></a>            <span class="cf">WHEN</span> <span class="fu">SUM</span>(PctOfTotal) OVER(<span class="kw">ORDER</span> <span class="kw">BY</span> TotalPenalty <span class="kw">DESC</span>) <span class="op">&lt;=</span> <span class="dv">80</span> <span class="cf">THEN</span> <span class="st">'Zone A'</span></span>
+<span id="cb14-163"><a href="#cb14-163" aria-hidden="true" tabindex="-1"></a>            <span class="cf">WHEN</span> <span class="fu">SUM</span>(PctOfTotal) OVER(<span class="kw">ORDER</span> <span class="kw">BY</span> TotalPenalty <span class="kw">DESC</span>) <span class="op">&lt;=</span> <span class="dv">95</span> <span class="cf">THEN</span> <span class="st">'Zone B'</span></span>
+<span id="cb14-164"><a href="#cb14-164" aria-hidden="true" tabindex="-1"></a>            <span class="cf">ELSE</span> <span class="st">'Zone C'</span></span>
+<span id="cb14-165"><a href="#cb14-165" aria-hidden="true" tabindex="-1"></a>        <span class="cf">END</span> <span class="kw">AS</span> ParetoZone</span>
+<span id="cb14-166"><a href="#cb14-166" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> Grouped</span>
+<span id="cb14-167"><a href="#cb14-167" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ORDER</span> <span class="kw">BY</span> TotalPenalty <span class="kw">DESC</span>;</span>
+<span id="cb14-168"><a href="#cb14-168" aria-hidden="true" tabindex="-1"></a><span class="cf">END</span>;</span>
+<span id="cb14-169"><a href="#cb14-169" aria-hidden="true" tabindex="-1"></a>GO</span>
+<span id="cb14-170"><a href="#cb14-170" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-171"><a href="#cb14-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-172"><a href="#cb14-172" aria-hidden="true" tabindex="-1"></a><span class="fu">### 12.4 Action plan from Pareto</span></span>
+<span id="cb14-173"><a href="#cb14-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-174"><a href="#cb14-174" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Priority <span class="pp">|</span> Root cause <span class="pp">|</span> Preventive action <span class="pp">|</span> Corrective action <span class="pp">|</span> SP to build <span class="pp">|</span> ROI <span class="pp">|</span></span>
+<span id="cb14-175"><a href="#cb14-175" aria-hidden="true" tabindex="-1"></a><span class="pp">|:---:|---|---|---|---|---:|</span></span>
+<span id="cb14-176"><a href="#cb14-176" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> P1 <span class="pp">|</span> VA COE not verified <span class="pp">|</span> Mandatory pre-check SP before audit <span class="pp">|</span> Escalate VBMS timeout in 4hr <span class="pp">|</span> usp_ValidateCOE <span class="pp">|</span> 150x <span class="pp">|</span></span>
+<span id="cb14-177"><a href="#cb14-177" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> P1 <span class="pp">|</span> FHA LTV over limit <span class="pp">|</span> <span class="in">`IF @LTV &gt; 96.5 AND @Type='FHA' → RAISERROR`</span> <span class="pp">|</span> Re-review all FHA LTV &gt; 93% <span class="pp">|</span> usp_UpsertLoan <span class="pp">|</span> 298x <span class="pp">|</span></span>
+<span id="cb14-178"><a href="#cb14-178" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> P1 <span class="pp">|</span> DTI over limit <span class="pp">|</span> <span class="in">`IF @DTI &gt; 43 AND @Type='FHA' → RAISERROR`</span> <span class="pp">|</span> Reject loan 40 retroactively <span class="pp">|</span> usp_UpsertLoan <span class="pp">|</span> 285x <span class="pp">|</span></span>
+<span id="cb14-179"><a href="#cb14-179" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> P2 <span class="pp">|</span> MIP rate outdated <span class="pp">|</span> Create dbo.MIPRates lookup table <span class="pp">|</span> Update monthly from FHA bulletin <span class="pp">|</span> usp_ValidateMIP <span class="pp">|</span> 35x <span class="pp">|</span></span>
+<span id="cb14-180"><a href="#cb14-180" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> P2 <span class="pp">|</span> TRID timing <span class="pp">|</span> Auto-alert servicer at day 2 <span class="pp">|</span> SP calculates business days <span class="pp">|</span> usp_CheckTRID <span class="pp">|</span> 55x <span class="pp">|</span></span>
+<span id="cb14-181"><a href="#cb14-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-182"><a href="#cb14-182" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb14-183"><a href="#cb14-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-184"><a href="#cb14-184" aria-hidden="true" tabindex="-1"></a><span class="fu">## 13. KPIs &amp; audit footings</span></span>
+<span id="cb14-185"><a href="#cb14-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-186"><a href="#cb14-186" aria-hidden="true" tabindex="-1"></a><span class="fu">### 13.1 KPI tracking query</span></span>
+<span id="cb14-187"><a href="#cb14-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-188"><a href="#cb14-188" aria-hidden="true" tabindex="-1"></a><span class="in">```sql</span></span>
+<span id="cb14-189"><a href="#cb14-189" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">OR</span> <span class="kw">ALTER</span> <span class="kw">PROCEDURE</span> dbo<span class="ch">.</span>usp_KPIDashboard</span>
+<span id="cb14-190"><a href="#cb14-190" aria-hidden="true" tabindex="-1"></a><span class="kw">AS</span></span>
+<span id="cb14-191"><a href="#cb14-191" aria-hidden="true" tabindex="-1"></a><span class="cf">BEGIN</span></span>
+<span id="cb14-192"><a href="#cb14-192" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SET</span> NOCOUNT <span class="kw">ON</span>;</span>
+<span id="cb14-193"><a href="#cb14-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-194"><a href="#cb14-194" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span></span>
+<span id="cb14-195"><a href="#cb14-195" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Defect rate'</span> <span class="kw">AS</span> KPI,</span>
+<span id="cb14-196"><a href="#cb14-196" aria-hidden="true" tabindex="-1"></a>        <span class="fu">CAST</span>(<span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> IsFail<span class="op">=</span><span class="dv">1</span> <span class="cf">THEN</span> <span class="dv">1</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>)<span class="op">*</span><span class="fl">100.0</span></span>
+<span id="cb14-197"><a href="#cb14-197" aria-hidden="true" tabindex="-1"></a>             <span class="op">/</span><span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> <span class="dt">DECIMAL</span>(<span class="dv">5</span>,<span class="dv">1</span>)) <span class="kw">AS</span> Actual,</span>
+<span id="cb14-198"><a href="#cb14-198" aria-hidden="true" tabindex="-1"></a>        <span class="fl">5.0</span> <span class="kw">AS</span> Target,</span>
+<span id="cb14-199"><a href="#cb14-199" aria-hidden="true" tabindex="-1"></a>        <span class="cf">CASE</span></span>
+<span id="cb14-200"><a href="#cb14-200" aria-hidden="true" tabindex="-1"></a>            <span class="cf">WHEN</span> <span class="fu">CAST</span>(<span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> IsFail<span class="op">=</span><span class="dv">1</span> <span class="cf">THEN</span> <span class="dv">1</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>)<span class="op">*</span><span class="fl">100.0</span></span>
+<span id="cb14-201"><a href="#cb14-201" aria-hidden="true" tabindex="-1"></a>                 <span class="op">/</span><span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> <span class="dt">DECIMAL</span>(<span class="dv">5</span>,<span class="dv">1</span>)) <span class="op">&lt;=</span> <span class="dv">5</span> <span class="cf">THEN</span> <span class="st">'GREEN'</span></span>
+<span id="cb14-202"><a href="#cb14-202" aria-hidden="true" tabindex="-1"></a>            <span class="cf">WHEN</span> <span class="fu">CAST</span>(<span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> IsFail<span class="op">=</span><span class="dv">1</span> <span class="cf">THEN</span> <span class="dv">1</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>)<span class="op">*</span><span class="fl">100.0</span></span>
+<span id="cb14-203"><a href="#cb14-203" aria-hidden="true" tabindex="-1"></a>                 <span class="op">/</span><span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> <span class="dt">DECIMAL</span>(<span class="dv">5</span>,<span class="dv">1</span>)) <span class="op">&lt;=</span> <span class="dv">10</span> <span class="cf">THEN</span> <span class="st">'YELLOW'</span></span>
+<span id="cb14-204"><a href="#cb14-204" aria-hidden="true" tabindex="-1"></a>            <span class="cf">ELSE</span> <span class="st">'RED'</span></span>
+<span id="cb14-205"><a href="#cb14-205" aria-hidden="true" tabindex="-1"></a>        <span class="cf">END</span> <span class="kw">AS</span> Semaphore</span>
+<span id="cb14-206"><a href="#cb14-206" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> dbo<span class="ch">.</span>Loans</span>
+<span id="cb14-207"><a href="#cb14-207" aria-hidden="true" tabindex="-1"></a>    <span class="kw">UNION</span> <span class="kw">ALL</span></span>
+<span id="cb14-208"><a href="#cb14-208" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> <span class="st">'Avg audit days'</span>,</span>
+<span id="cb14-209"><a href="#cb14-209" aria-hidden="true" tabindex="-1"></a>        <span class="fu">CAST</span>(<span class="fu">AVG</span>(AuditDays) <span class="kw">AS</span> <span class="dt">DECIMAL</span>(<span class="dv">3</span>,<span class="dv">1</span>)), <span class="fl">2.0</span>,</span>
+<span id="cb14-210"><a href="#cb14-210" aria-hidden="true" tabindex="-1"></a>        <span class="cf">CASE</span> <span class="cf">WHEN</span> <span class="fu">AVG</span>(AuditDays) <span class="op">&lt;=</span> <span class="dv">2</span> <span class="cf">THEN</span> <span class="st">'GREEN'</span></span>
+<span id="cb14-211"><a href="#cb14-211" aria-hidden="true" tabindex="-1"></a>             <span class="cf">WHEN</span> <span class="fu">AVG</span>(AuditDays) <span class="op">&lt;=</span> <span class="fl">3.5</span> <span class="cf">THEN</span> <span class="st">'YELLOW'</span> <span class="cf">ELSE</span> <span class="st">'RED'</span> <span class="cf">END</span></span>
+<span id="cb14-212"><a href="#cb14-212" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> dbo<span class="ch">.</span>Loans</span>
+<span id="cb14-213"><a href="#cb14-213" aria-hidden="true" tabindex="-1"></a>    <span class="kw">UNION</span> <span class="kw">ALL</span></span>
+<span id="cb14-214"><a href="#cb14-214" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> <span class="st">'Total penalty exposure'</span>,</span>
+<span id="cb14-215"><a href="#cb14-215" aria-hidden="true" tabindex="-1"></a>        <span class="fu">CAST</span>(<span class="fu">SUM</span>(Penalty)<span class="op">/</span><span class="dv">1000</span> <span class="kw">AS</span> <span class="dt">DECIMAL</span>(<span class="dv">10</span>,<span class="dv">1</span>)), <span class="fl">100.0</span>,</span>
+<span id="cb14-216"><a href="#cb14-216" aria-hidden="true" tabindex="-1"></a>        <span class="cf">CASE</span> <span class="cf">WHEN</span> <span class="fu">SUM</span>(Penalty) <span class="op">&lt;=</span> <span class="dv">100000</span> <span class="cf">THEN</span> <span class="st">'GREEN'</span></span>
+<span id="cb14-217"><a href="#cb14-217" aria-hidden="true" tabindex="-1"></a>             <span class="cf">WHEN</span> <span class="fu">SUM</span>(Penalty) <span class="op">&lt;=</span> <span class="dv">500000</span> <span class="cf">THEN</span> <span class="st">'YELLOW'</span> <span class="cf">ELSE</span> <span class="st">'RED'</span> <span class="cf">END</span></span>
+<span id="cb14-218"><a href="#cb14-218" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> dbo<span class="ch">.</span>Loans;</span>
+<span id="cb14-219"><a href="#cb14-219" aria-hidden="true" tabindex="-1"></a><span class="cf">END</span>;</span>
+<span id="cb14-220"><a href="#cb14-220" aria-hidden="true" tabindex="-1"></a>GO</span>
+<span id="cb14-221"><a href="#cb14-221" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-222"><a href="#cb14-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-223"><a href="#cb14-223" aria-hidden="true" tabindex="-1"></a><span class="fu">### 13.2 Footing verification with GROUPING SETS</span></span>
+<span id="cb14-224"><a href="#cb14-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-225"><a href="#cb14-225" aria-hidden="true" tabindex="-1"></a><span class="in">```sql</span></span>
+<span id="cb14-226"><a href="#cb14-226" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">OR</span> <span class="kw">ALTER</span> <span class="kw">PROCEDURE</span> dbo<span class="ch">.</span>usp_FootingVerification</span>
+<span id="cb14-227"><a href="#cb14-227" aria-hidden="true" tabindex="-1"></a><span class="kw">AS</span></span>
+<span id="cb14-228"><a href="#cb14-228" aria-hidden="true" tabindex="-1"></a><span class="cf">BEGIN</span></span>
+<span id="cb14-229"><a href="#cb14-229" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SET</span> NOCOUNT <span class="kw">ON</span>;</span>
+<span id="cb14-230"><a href="#cb14-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-231"><a href="#cb14-231" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span></span>
+<span id="cb14-232"><a href="#cb14-232" aria-hidden="true" tabindex="-1"></a>        <span class="fu">COALESCE</span>(T<span class="ch">.</span>Name, <span class="st">'=== GRAND TOTAL'</span>) <span class="kw">AS</span> Tenant,</span>
+<span id="cb14-233"><a href="#cb14-233" aria-hidden="true" tabindex="-1"></a>        <span class="fu">COALESCE</span>(L<span class="ch">.</span>LoanType, <span class="st">'--- Subtotal ---'</span>) <span class="kw">AS</span> LoanType,</span>
+<span id="cb14-234"><a href="#cb14-234" aria-hidden="true" tabindex="-1"></a>        <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> Loans,</span>
+<span id="cb14-235"><a href="#cb14-235" aria-hidden="true" tabindex="-1"></a>        <span class="fu">SUM</span>(L<span class="ch">.</span>LoanAmount) <span class="kw">AS</span> TotalAmount,</span>
+<span id="cb14-236"><a href="#cb14-236" aria-hidden="true" tabindex="-1"></a>        <span class="fu">AVG</span>(L<span class="ch">.</span>LTV) <span class="kw">AS</span> AvgLTV,</span>
+<span id="cb14-237"><a href="#cb14-237" aria-hidden="true" tabindex="-1"></a>        <span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> L<span class="ch">.</span>IsFail <span class="op">=</span> <span class="dv">0</span> <span class="cf">THEN</span> <span class="dv">1</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>) <span class="kw">AS</span> Pass,</span>
+<span id="cb14-238"><a href="#cb14-238" aria-hidden="true" tabindex="-1"></a>        <span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> L<span class="ch">.</span>IsFail <span class="op">=</span> <span class="dv">1</span> <span class="cf">THEN</span> <span class="dv">1</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>) <span class="kw">AS</span> Fail,</span>
+<span id="cb14-239"><a href="#cb14-239" aria-hidden="true" tabindex="-1"></a>        <span class="fu">CAST</span>(<span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> L<span class="ch">.</span>IsFail <span class="op">=</span> <span class="dv">0</span> <span class="cf">THEN</span> <span class="dv">1</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>) <span class="op">*</span> <span class="fl">100.0</span></span>
+<span id="cb14-240"><a href="#cb14-240" aria-hidden="true" tabindex="-1"></a>             <span class="op">/</span> NULLIF(<span class="fu">COUNT</span>(<span class="op">*</span>), <span class="dv">0</span>) <span class="kw">AS</span> <span class="dt">DECIMAL</span>(<span class="dv">5</span>,<span class="dv">1</span>)) <span class="kw">AS</span> PassRate,</span>
+<span id="cb14-241"><a href="#cb14-241" aria-hidden="true" tabindex="-1"></a>        <span class="fu">SUM</span>(L<span class="ch">.</span>Penalty) <span class="kw">AS</span> TotalPenalty</span>
+<span id="cb14-242"><a href="#cb14-242" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> dbo<span class="ch">.</span>Loans L</span>
+<span id="cb14-243"><a href="#cb14-243" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> dbo<span class="ch">.</span>Tenants T <span class="kw">ON</span> L<span class="ch">.</span>TenantId <span class="op">=</span> T<span class="ch">.</span>TenantId</span>
+<span id="cb14-244"><a href="#cb14-244" aria-hidden="true" tabindex="-1"></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> GROUPING SETS (</span>
+<span id="cb14-245"><a href="#cb14-245" aria-hidden="true" tabindex="-1"></a>        (T<span class="ch">.</span>Name, L<span class="ch">.</span>LoanType),</span>
+<span id="cb14-246"><a href="#cb14-246" aria-hidden="true" tabindex="-1"></a>        (T<span class="ch">.</span>Name),</span>
+<span id="cb14-247"><a href="#cb14-247" aria-hidden="true" tabindex="-1"></a>        ()</span>
+<span id="cb14-248"><a href="#cb14-248" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb14-249"><a href="#cb14-249" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb14-250"><a href="#cb14-250" aria-hidden="true" tabindex="-1"></a>        GROUPING(T<span class="ch">.</span>Name),</span>
+<span id="cb14-251"><a href="#cb14-251" aria-hidden="true" tabindex="-1"></a>        T<span class="ch">.</span>Name,</span>
+<span id="cb14-252"><a href="#cb14-252" aria-hidden="true" tabindex="-1"></a>        GROUPING(L<span class="ch">.</span>LoanType),</span>
+<span id="cb14-253"><a href="#cb14-253" aria-hidden="true" tabindex="-1"></a>        L<span class="ch">.</span>LoanType;</span>
+<span id="cb14-254"><a href="#cb14-254" aria-hidden="true" tabindex="-1"></a><span class="cf">END</span>;</span>
+<span id="cb14-255"><a href="#cb14-255" aria-hidden="true" tabindex="-1"></a>GO</span>
+<span id="cb14-256"><a href="#cb14-256" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-257"><a href="#cb14-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-258"><a href="#cb14-258" aria-hidden="true" tabindex="-1"></a><span class="fu">### 13.3 Cross-foot verification checklist</span></span>
+<span id="cb14-259"><a href="#cb14-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-260"><a href="#cb14-260" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-261"><a href="#cb14-261" aria-hidden="true" tabindex="-1"></a><span class="in">After running usp_FootingVerification, verify:</span></span>
+<span id="cb14-262"><a href="#cb14-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-263"><a href="#cb14-263" aria-hidden="true" tabindex="-1"></a><span class="in">✅ Vertical:     FNB subtotal + MMC subtotal = Grand total</span></span>
+<span id="cb14-264"><a href="#cb14-264" aria-hidden="true" tabindex="-1"></a><span class="in">✅ Horizontal:   Pass + Fail = Total loans per row</span></span>
+<span id="cb14-265"><a href="#cb14-265" aria-hidden="true" tabindex="-1"></a><span class="in">✅ Completeness: Grand total loans = SELECT COUNT(*) FROM dbo.Loans</span></span>
+<span id="cb14-266"><a href="#cb14-266" aria-hidden="true" tabindex="-1"></a><span class="in">✅ Penalties:    SUM by tenant + SUM by type = Grand total penalty</span></span>
+<span id="cb14-267"><a href="#cb14-267" aria-hidden="true" tabindex="-1"></a><span class="in">✅ LTV formula:  LoanAmount / PropertyValue per row (validated at insert by SP)</span></span>
+<span id="cb14-268"><a href="#cb14-268" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-269"><a href="#cb14-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-270"><a href="#cb14-270" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb14-271"><a href="#cb14-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-272"><a href="#cb14-272" aria-hidden="true" tabindex="-1"></a><span class="fu">## 14. COBIT 2019 governance</span></span>
+<span id="cb14-273"><a href="#cb14-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-274"><a href="#cb14-274" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Domain <span class="pp">|</span> Objective <span class="pp">|</span> Implementation in NeboAudit <span class="pp">|</span> Maturity <span class="pp">|</span></span>
+<span id="cb14-275"><a href="#cb14-275" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|:---:|</span></span>
+<span id="cb14-276"><a href="#cb14-276" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> EDM <span class="pp">|</span> EDM01 Governance framework <span class="pp">|</span> Multi-tenant RLS · JWT role separation · access matrix <span class="pp">|</span> L3 <span class="pp">|</span></span>
+<span id="cb14-277"><a href="#cb14-277" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> EDM <span class="pp">|</span> EDM03 Risk optimization <span class="pp">|</span> Risk matrix by project phase · Pareto action plan <span class="pp">|</span> L2 <span class="pp">|</span></span>
+<span id="cb14-278"><a href="#cb14-278" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> APO <span class="pp">|</span> APO12 Risk management <span class="pp">|</span> CHECK constraints · AuditLog trigger · anomaly SP <span class="pp">|</span> L3 <span class="pp">|</span></span>
+<span id="cb14-279"><a href="#cb14-279" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> APO <span class="pp">|</span> APO13 Security management <span class="pp">|</span> 5-layer defense · OWASP mapping · .gitignore <span class="pp">|</span> L2 <span class="pp">|</span></span>
+<span id="cb14-280"><a href="#cb14-280" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> BAI <span class="pp">|</span> BAI03 Solutions build <span class="pp">|</span> Clean architecture · Swagger-first · Git tags <span class="pp">|</span> L3 <span class="pp">|</span></span>
+<span id="cb14-281"><a href="#cb14-281" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> BAI <span class="pp">|</span> BAI10 Configuration mgmt <span class="pp">|</span> appsettings excluded · schema versioning in Git <span class="pp">|</span> L3 <span class="pp">|</span></span>
+<span id="cb14-282"><a href="#cb14-282" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> DSS <span class="pp">|</span> DSS05 Security services <span class="pp">|</span> Parameterized SPs · Windows Auth · no raw SQL <span class="pp">|</span> L3 <span class="pp">|</span></span>
+<span id="cb14-283"><a href="#cb14-283" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> DSS <span class="pp">|</span> DSS06 Process controls <span class="pp">|</span> TRY/CATCH · ROLLBACK · idempotent MERGE <span class="pp">|</span> L2 <span class="pp">|</span></span>
+<span id="cb14-284"><a href="#cb14-284" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MEA <span class="pp">|</span> MEA01 Performance monitor <span class="pp">|</span> KPI SP · semaphore dashboard · ML scoring <span class="pp">|</span> L2 <span class="pp">|</span></span>
+<span id="cb14-285"><a href="#cb14-285" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MEA <span class="pp">|</span> MEA02 Internal controls <span class="pp">|</span> AuditLog trigger · footing SP · cross-foot verification <span class="pp">|</span> L3 <span class="pp">|</span></span>
+<span id="cb14-286"><a href="#cb14-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-287"><a href="#cb14-287" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb14-288"><a href="#cb14-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-289"><a href="#cb14-289" aria-hidden="true" tabindex="-1"></a><span class="fu">## 15. Audit procedures (ISA / PCAOB)</span></span>
+<span id="cb14-290"><a href="#cb14-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-291"><a href="#cb14-291" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Assertion <span class="pp">|</span> Method <span class="pp">|</span> SQL implementation <span class="pp">|</span> Status <span class="pp">|</span></span>
+<span id="cb14-292"><a href="#cb14-292" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|:---:|</span></span>
+<span id="cb14-293"><a href="#cb14-293" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Completeness <span class="pp">|</span> No orphan records <span class="pp">|</span> FK_Loans_Tenants <span class="pp">|</span> ✅ Auto <span class="pp">|</span></span>
+<span id="cb14-294"><a href="#cb14-294" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Existence <span class="pp">|</span> Every change recorded <span class="pp">|</span> trg_Loans_Audit (INSERT/UPDATE/DELETE) <span class="pp">|</span> ✅ Auto <span class="pp">|</span></span>
+<span id="cb14-295"><a href="#cb14-295" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Accuracy <span class="pp">|</span> Domain constraints <span class="pp">|</span> CHK_Loans_LTV, CHK_Loans_DTI <span class="pp">|</span> ✅ Auto <span class="pp">|</span></span>
+<span id="cb14-296"><a href="#cb14-296" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Cutoff <span class="pp">|</span> UTC timestamps <span class="pp">|</span> DEFAULT GETUTCDATE() on all tables <span class="pp">|</span> ✅ Auto <span class="pp">|</span></span>
+<span id="cb14-297"><a href="#cb14-297" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Valuation <span class="pp">|</span> LTV computed at insert <span class="pp">|</span> SP calculates LTV = Amount/PropValue <span class="pp">|</span> ✅ Auto <span class="pp">|</span></span>
+<span id="cb14-298"><a href="#cb14-298" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Classification <span class="pp">|</span> Restricted types <span class="pp">|</span> LoanType IN ('Conventional','FHA','VA','USDA') <span class="pp">|</span> ✅ Auto <span class="pp">|</span></span>
+<span id="cb14-299"><a href="#cb14-299" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Uniqueness <span class="pp">|</span> No duplicates <span class="pp">|</span> UQ_Loans_External (TenantId, ExternalLoanId) <span class="pp">|</span> ✅ Auto <span class="pp">|</span></span>
+<span id="cb14-300"><a href="#cb14-300" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Rights &amp; obligations <span class="pp">|</span> Tenant isolation <span class="pp">|</span> RLS policy + SESSION_CONTEXT + JWT claims <span class="pp">|</span> ✅ Auto <span class="pp">|</span></span>
+<span id="cb14-301"><a href="#cb14-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-302"><a href="#cb14-302" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb14-303"><a href="#cb14-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-304"><a href="#cb14-304" aria-hidden="true" tabindex="-1"></a><span class="fu">## 16. Access control — who sees what</span></span>
+<span id="cb14-305"><a href="#cb14-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-306"><a href="#cb14-306" aria-hidden="true" tabindex="-1"></a><span class="fu">### 16.1 Row-Level Security</span></span>
+<span id="cb14-307"><a href="#cb14-307" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-308"><a href="#cb14-308" aria-hidden="true" tabindex="-1"></a><span class="in">```sql</span></span>
+<span id="cb14-309"><a href="#cb14-309" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">FUNCTION</span> dbo<span class="ch">.</span>fn_TenantAccess(@TenantId <span class="dt">INT</span>)</span>
+<span id="cb14-310"><a href="#cb14-310" aria-hidden="true" tabindex="-1"></a><span class="kw">RETURNS</span> <span class="kw">TABLE</span> <span class="kw">WITH</span> SCHEMABINDING</span>
+<span id="cb14-311"><a href="#cb14-311" aria-hidden="true" tabindex="-1"></a><span class="kw">AS</span></span>
+<span id="cb14-312"><a href="#cb14-312" aria-hidden="true" tabindex="-1"></a>    <span class="cf">RETURN</span> <span class="kw">SELECT</span> <span class="dv">1</span> <span class="kw">AS</span> Ok</span>
+<span id="cb14-313"><a href="#cb14-313" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> @TenantId <span class="op">=</span> <span class="fu">CAST</span>(SESSION_CONTEXT(N<span class="st">'TenantId'</span>) <span class="kw">AS</span> <span class="dt">INT</span>);</span>
+<span id="cb14-314"><a href="#cb14-314" aria-hidden="true" tabindex="-1"></a>GO</span>
+<span id="cb14-315"><a href="#cb14-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-316"><a href="#cb14-316" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> SECURITY POLICY TenantFilter</span>
+<span id="cb14-317"><a href="#cb14-317" aria-hidden="true" tabindex="-1"></a><span class="kw">ADD</span> FILTER PREDICATE dbo<span class="ch">.</span>fn_TenantAccess(TenantId) <span class="kw">ON</span> dbo<span class="ch">.</span>Loans</span>
+<span id="cb14-318"><a href="#cb14-318" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> (STATE <span class="op">=</span> <span class="kw">ON</span>);</span>
+<span id="cb14-319"><a href="#cb14-319" aria-hidden="true" tabindex="-1"></a>GO</span>
+<span id="cb14-320"><a href="#cb14-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-321"><a href="#cb14-321" aria-hidden="true" tabindex="-1"></a><span class="co">-- .NET middleware sets this on every request:</span></span>
+<span id="cb14-322"><a href="#cb14-322" aria-hidden="true" tabindex="-1"></a><span class="co">-- EXEC sp_set_session_context @key=N'TenantId', @value=@TenantId;</span></span>
+<span id="cb14-323"><a href="#cb14-323" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-324"><a href="#cb14-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-325"><a href="#cb14-325" aria-hidden="true" tabindex="-1"></a><span class="fu">### 16.2 Access matrix</span></span>
+<span id="cb14-326"><a href="#cb14-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-327"><a href="#cb14-327" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Role <span class="pp">|</span> FNB data <span class="pp">|</span> MMC data <span class="pp">|</span> AuditLog <span class="pp">|</span> Budget <span class="pp">|</span> Admin <span class="pp">|</span></span>
+<span id="cb14-328"><a href="#cb14-328" aria-hidden="true" tabindex="-1"></a><span class="pp">|:---:|:---:|:---:|:---:|:---:|:---:|</span></span>
+<span id="cb14-329"><a href="#cb14-329" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Auditor (FNB) <span class="pp">|</span> ✅ Read <span class="pp">|</span> ❌ <span class="pp">|</span> Own actions <span class="pp">|</span> ❌ <span class="pp">|</span> ❌ <span class="pp">|</span></span>
+<span id="cb14-330"><a href="#cb14-330" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Auditor (MMC) <span class="pp">|</span> ❌ <span class="pp">|</span> ✅ Read <span class="pp">|</span> Own actions <span class="pp">|</span> ❌ <span class="pp">|</span> ❌ <span class="pp">|</span></span>
+<span id="cb14-331"><a href="#cb14-331" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Manager (FNB) <span class="pp">|</span> ✅ Read+Write <span class="pp">|</span> ❌ <span class="pp">|</span> All FNB <span class="pp">|</span> ✅ Read <span class="pp">|</span> ❌ <span class="pp">|</span></span>
+<span id="cb14-332"><a href="#cb14-332" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Director QC <span class="pp">|</span> ✅ All <span class="pp">|</span> ✅ All <span class="pp">|</span> ✅ All <span class="pp">|</span> ✅ R+W <span class="pp">|</span> ✅ <span class="pp">|</span></span>
+<span id="cb14-333"><a href="#cb14-333" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-334"><a href="#cb14-334" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb14-335"><a href="#cb14-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-336"><a href="#cb14-336" aria-hidden="true" tabindex="-1"></a><span class="fu">## 17. Traceability — who changed what</span></span>
+<span id="cb14-337"><a href="#cb14-337" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-338"><a href="#cb14-338" aria-hidden="true" tabindex="-1"></a><span class="fu">### 17.1 Trigger (already in your schema — section 2)</span></span>
+<span id="cb14-339"><a href="#cb14-339" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-340"><a href="#cb14-340" aria-hidden="true" tabindex="-1"></a>The <span class="in">`trg_Loans_Audit`</span> trigger captures:</span>
+<span id="cb14-341"><a href="#cb14-341" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Who:** <span class="in">`SYSTEM_USER`</span> (the Windows/SQL login)</span>
+<span id="cb14-342"><a href="#cb14-342" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**When:** <span class="in">`GETUTCDATE()`</span> (server-controlled, cannot be backdated)</span>
+<span id="cb14-343"><a href="#cb14-343" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**What:** table name, operation, record ID</span>
+<span id="cb14-344"><a href="#cb14-344" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Old values:** from <span class="in">`deleted`</span> pseudo-table</span>
+<span id="cb14-345"><a href="#cb14-345" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**New values:** from <span class="in">`inserted`</span> pseudo-table</span>
+<span id="cb14-346"><a href="#cb14-346" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-347"><a href="#cb14-347" aria-hidden="true" tabindex="-1"></a><span class="fu">### 17.2 Audit trail query</span></span>
+<span id="cb14-348"><a href="#cb14-348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-349"><a href="#cb14-349" aria-hidden="true" tabindex="-1"></a><span class="in">```sql</span></span>
+<span id="cb14-350"><a href="#cb14-350" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">OR</span> <span class="kw">ALTER</span> <span class="kw">PROCEDURE</span> dbo<span class="ch">.</span>usp_AuditTrail</span>
+<span id="cb14-351"><a href="#cb14-351" aria-hidden="true" tabindex="-1"></a>    @LoanId <span class="dt">INT</span>,</span>
+<span id="cb14-352"><a href="#cb14-352" aria-hidden="true" tabindex="-1"></a>    @DaysBack <span class="dt">INT</span> <span class="op">=</span> <span class="dv">30</span></span>
+<span id="cb14-353"><a href="#cb14-353" aria-hidden="true" tabindex="-1"></a><span class="kw">AS</span></span>
+<span id="cb14-354"><a href="#cb14-354" aria-hidden="true" tabindex="-1"></a><span class="cf">BEGIN</span></span>
+<span id="cb14-355"><a href="#cb14-355" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SET</span> NOCOUNT <span class="kw">ON</span>;</span>
+<span id="cb14-356"><a href="#cb14-356" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-357"><a href="#cb14-357" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span></span>
+<span id="cb14-358"><a href="#cb14-358" aria-hidden="true" tabindex="-1"></a>        AuditId,</span>
+<span id="cb14-359"><a href="#cb14-359" aria-hidden="true" tabindex="-1"></a>        Operation,</span>
+<span id="cb14-360"><a href="#cb14-360" aria-hidden="true" tabindex="-1"></a>        OldValues,</span>
+<span id="cb14-361"><a href="#cb14-361" aria-hidden="true" tabindex="-1"></a>        NewValues,</span>
+<span id="cb14-362"><a href="#cb14-362" aria-hidden="true" tabindex="-1"></a>        UserIdentity,</span>
+<span id="cb14-363"><a href="#cb14-363" aria-hidden="true" tabindex="-1"></a>        <span class="dt">Timestamp</span>,</span>
+<span id="cb14-364"><a href="#cb14-364" aria-hidden="true" tabindex="-1"></a>        LAG(<span class="dt">Timestamp</span>) OVER(<span class="kw">ORDER</span> <span class="kw">BY</span> <span class="dt">Timestamp</span>) <span class="kw">AS</span> PreviousChange,</span>
+<span id="cb14-365"><a href="#cb14-365" aria-hidden="true" tabindex="-1"></a>        DATEDIFF(<span class="fu">MINUTE</span>,</span>
+<span id="cb14-366"><a href="#cb14-366" aria-hidden="true" tabindex="-1"></a>            LAG(<span class="dt">Timestamp</span>) OVER(<span class="kw">ORDER</span> <span class="kw">BY</span> <span class="dt">Timestamp</span>),</span>
+<span id="cb14-367"><a href="#cb14-367" aria-hidden="true" tabindex="-1"></a>            <span class="dt">Timestamp</span>) <span class="kw">AS</span> MinutesSinceLast,</span>
+<span id="cb14-368"><a href="#cb14-368" aria-hidden="true" tabindex="-1"></a>        ROW_NUMBER() OVER(<span class="kw">ORDER</span> <span class="kw">BY</span> <span class="dt">Timestamp</span> <span class="kw">DESC</span>) <span class="kw">AS</span> ChangeSequence</span>
+<span id="cb14-369"><a href="#cb14-369" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> dbo<span class="ch">.</span>AuditLog</span>
+<span id="cb14-370"><a href="#cb14-370" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> RecordId <span class="op">=</span> @LoanId</span>
+<span id="cb14-371"><a href="#cb14-371" aria-hidden="true" tabindex="-1"></a>      <span class="kw">AND</span> TableName <span class="op">=</span> <span class="st">'Loans'</span></span>
+<span id="cb14-372"><a href="#cb14-372" aria-hidden="true" tabindex="-1"></a>      <span class="kw">AND</span> <span class="dt">Timestamp</span> <span class="op">&gt;=</span> DATEADD(DAY, <span class="op">-</span>@DaysBack, GETUTCDATE())</span>
+<span id="cb14-373"><a href="#cb14-373" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="dt">Timestamp</span> <span class="kw">DESC</span>;</span>
+<span id="cb14-374"><a href="#cb14-374" aria-hidden="true" tabindex="-1"></a><span class="cf">END</span>;</span>
+<span id="cb14-375"><a href="#cb14-375" aria-hidden="true" tabindex="-1"></a>GO</span>
+<span id="cb14-376"><a href="#cb14-376" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-377"><a href="#cb14-377" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-378"><a href="#cb14-378" aria-hidden="true" tabindex="-1"></a><span class="fu">### 17.3 Anti-tampering controls</span></span>
+<span id="cb14-379"><a href="#cb14-379" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-380"><a href="#cb14-380" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Threat <span class="pp">|</span> Protection <span class="pp">|</span></span>
+<span id="cb14-381"><a href="#cb14-381" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
+<span id="cb14-382"><a href="#cb14-382" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Auditor changes Fail → Pass <span class="pp">|</span> Trigger records old=Fail, new=Pass, who, when <span class="pp">|</span></span>
+<span id="cb14-383"><a href="#cb14-383" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Someone deletes AuditLog rows <span class="pp">|</span> <span class="in">`DENY DELETE ON dbo.AuditLog TO PUBLIC`</span> <span class="pp">|</span></span>
+<span id="cb14-384"><a href="#cb14-384" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> DBA disables trigger <span class="pp">|</span> SQL Agent checks <span class="in">`sys.triggers`</span> hourly <span class="pp">|</span></span>
+<span id="cb14-385"><a href="#cb14-385" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Someone backdates timestamp <span class="pp">|</span> <span class="in">`GETUTCDATE()`</span> is server-controlled <span class="pp">|</span></span>
+<span id="cb14-386"><a href="#cb14-386" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Bulk UPDATE to erase evidence <span class="pp">|</span> Each row generates a separate AuditLog entry <span class="pp">|</span></span>
+<span id="cb14-387"><a href="#cb14-387" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-388"><a href="#cb14-388" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb14-389"><a href="#cb14-389" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-390"><a href="#cb14-390" aria-hidden="true" tabindex="-1"></a><span class="fu">## 18. Risk matrix — every project phase</span></span>
+<span id="cb14-391"><a href="#cb14-391" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-392"><a href="#cb14-392" aria-hidden="true" tabindex="-1"></a><span class="fu">### 18.1 Heat map</span></span>
+<span id="cb14-393"><a href="#cb14-393" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-394"><a href="#cb14-394" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-395"><a href="#cb14-395" aria-hidden="true" tabindex="-1"></a><span class="in">                    ║ Negligible │  Low   │ Medium │  High  │ Critical ║</span></span>
+<span id="cb14-396"><a href="#cb14-396" aria-hidden="true" tabindex="-1"></a><span class="in"> ═══════════════════╬════════════╪════════╪════════╪════════╪══════════║</span></span>
+<span id="cb14-397"><a href="#cb14-397" aria-hidden="true" tabindex="-1"></a><span class="in"> Very high          ║    Med     │  High  │  Crit  │  Crit  │   Crit   ║</span></span>
+<span id="cb14-398"><a href="#cb14-398" aria-hidden="true" tabindex="-1"></a><span class="in"> High               ║    Med     │  Med   │  High  │R1 R10  │   Crit   ║</span></span>
+<span id="cb14-399"><a href="#cb14-399" aria-hidden="true" tabindex="-1"></a><span class="in"> Medium             ║    Low     │  Med   │R4 R12  │ R2 R13 │   Crit   ║</span></span>
+<span id="cb14-400"><a href="#cb14-400" aria-hidden="true" tabindex="-1"></a><span class="in"> Low                ║    Low     │  Low   │ R5 R9  │R3 R11  │R7 R16   ║</span></span>
+<span id="cb14-401"><a href="#cb14-401" aria-hidden="true" tabindex="-1"></a><span class="in"> Very low           ║    Low     │  Low   │  Low   │  R6    │   High   ║</span></span>
+<span id="cb14-402"><a href="#cb14-402" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-403"><a href="#cb14-403" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-404"><a href="#cb14-404" aria-hidden="true" tabindex="-1"></a><span class="fu">### 18.2 Full risk register by phase</span></span>
+<span id="cb14-405"><a href="#cb14-405" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-406"><a href="#cb14-406" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Phase <span class="pp">|</span> ID <span class="pp">|</span> Risk <span class="pp">|</span> Prob <span class="pp">|</span> Impact <span class="pp">|</span> Score <span class="pp">|</span> Plan B <span class="pp">|</span> Plan C <span class="pp">|</span></span>
+<span id="cb14-407"><a href="#cb14-407" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|:---:|---|:---:|:---:|:---:|---|---|</span></span>
+<span id="cb14-408"><a href="#cb14-408" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Schema** <span class="pp">|</span> R8 <span class="pp">|</span> FK wrong / missing CHECK <span class="pp">|</span> Med <span class="pp">|</span> High <span class="pp">|</span> 12 <span class="pp">|</span> DBA code review before deploy <span class="pp">|</span> tSQLt unit tests on staging <span class="pp">|</span></span>
+<span id="cb14-409"><a href="#cb14-409" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Schema** <span class="pp">|</span> R9 <span class="pp">|</span> Missing index <span class="pp">|</span> Low <span class="pp">|</span> Med <span class="pp">|</span> 6 <span class="pp">|</span> Query plan analysis pre-release <span class="pp">|</span> Add covering indexes post-deploy <span class="pp">|</span></span>
+<span id="cb14-410"><a href="#cb14-410" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Stored proc** <span class="pp">|</span> R10 <span class="pp">|</span> Bug in LTV calculation <span class="pp">|</span> High <span class="pp">|</span> High <span class="pp">|</span> 16 <span class="pp">|</span> Run SP on staging with test data <span class="pp">|</span> tSQLt automated regression <span class="pp">|</span></span>
+<span id="cb14-411"><a href="#cb14-411" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Stored proc** <span class="pp">|</span> R11 <span class="pp">|</span> Deadlock on concurrent writes <span class="pp">|</span> Low <span class="pp">|</span> High <span class="pp">|</span> 8 <span class="pp">|</span> SET NOCOUNT ON + short txn <span class="pp">|</span> NOLOCK on read-only queries <span class="pp">|</span></span>
+<span id="cb14-412"><a href="#cb14-412" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Migration** <span class="pp">|</span> R12 <span class="pp">|</span> Legacy format mismatch <span class="pp">|</span> High <span class="pp">|</span> Med <span class="pp">|</span> 12 <span class="pp">|</span> Staging table + MERGE TRY/CATCH <span class="pp">|</span> Error log per row, never direct INSERT <span class="pp">|</span></span>
+<span id="cb14-413"><a href="#cb14-413" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Migration** <span class="pp">|</span> R13 <span class="pp">|</span> Duplicate loans in source <span class="pp">|</span> Med <span class="pp">|</span> High <span class="pp">|</span> 12 <span class="pp">|</span> UNIQUE constraint rejects dupes <span class="pp">|</span> Pre-migration dedup script <span class="pp">|</span></span>
+<span id="cb14-414"><a href="#cb14-414" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **API deploy** <span class="pp">|</span> R14 <span class="pp">|</span> Swagger breaks <span class="pp">|</span> Med <span class="pp">|</span> Med <span class="pp">|</span> 9 <span class="pp">|</span> Blue-green deployment <span class="pp">|</span> Git checkout previous tag <span class="pp">|</span></span>
+<span id="cb14-415"><a href="#cb14-415" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **API deploy** <span class="pp">|</span> R15 <span class="pp">|</span> JWT misconfigured <span class="pp">|</span> Low <span class="pp">|</span> High <span class="pp">|</span> 8 <span class="pp">|</span> Integration tests in CI <span class="pp">|</span> Disable auth temporarily <span class="pp">|</span></span>
+<span id="cb14-416"><a href="#cb14-416" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Trigger** <span class="pp">|</span> R16 <span class="pp">|</span> Trigger disabled by accident <span class="pp">|</span> Low <span class="pp">|</span> Crit <span class="pp">|</span> 10 <span class="pp">|</span> SQL Agent hourly check <span class="pp">|</span> DENY ALTER on trigger <span class="pp">|</span></span>
+<span id="cb14-417"><a href="#cb14-417" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Backup** <span class="pp">|</span> R18 <span class="pp">|</span> Backup corrupted <span class="pp">|</span> Low <span class="pp">|</span> Crit <span class="pp">|</span> 10 <span class="pp">|</span> Monthly restore test on staging <span class="pp">|</span> Geo-redundant Azure Blob <span class="pp">|</span></span>
+<span id="cb14-418"><a href="#cb14-418" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Backup** <span class="pp">|</span> R19 <span class="pp">|</span> Ransomware <span class="pp">|</span> Low <span class="pp">|</span> Crit <span class="pp">|</span> 10 <span class="pp">|</span> Off-site backup (Azure GRS) <span class="pp">|</span> Air-gapped backup <span class="pp">|</span></span>
+<span id="cb14-419"><a href="#cb14-419" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Credentials** <span class="pp">|</span> R1 <span class="pp">|</span> IAM keys exposed <span class="pp">|</span> High <span class="pp">|</span> High <span class="pp">|</span> 16 <span class="pp">|</span> Rotate immediately + MFA <span class="pp">|</span> Switch to IAM roles <span class="pp">|</span></span>
+<span id="cb14-420"><a href="#cb14-420" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Credentials** <span class="pp">|</span> R2 <span class="pp">|</span> sa login weak password <span class="pp">|</span> Med <span class="pp">|</span> High <span class="pp">|</span> 12 <span class="pp">|</span> Disable sa → Windows Auth <span class="pp">|</span> Azure Key Vault <span class="pp">|</span></span>
+<span id="cb14-421"><a href="#cb14-421" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **API security** <span class="pp">|</span> R4 <span class="pp">|</span> No JWT on endpoints <span class="pp">|</span> Med <span class="pp">|</span> Med <span class="pp">|</span> 9 <span class="pp">|</span> JWT middleware from day 1 <span class="pp">|</span> <span class="co">[</span><span class="ot">Authorize</span><span class="co">]</span> on all controllers <span class="pp">|</span></span>
+<span id="cb14-422"><a href="#cb14-422" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Isolation** <span class="pp">|</span> R5 <span class="pp">|</span> Tenant sees other's data <span class="pp">|</span> Low <span class="pp">|</span> Med <span class="pp">|</span> 6 <span class="pp">|</span> RLS per TenantId <span class="pp">|</span> API-level filter backup <span class="pp">|</span></span>
+<span id="cb14-423"><a href="#cb14-423" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Transport** <span class="pp">|</span> R3 <span class="pp">|</span> No TLS in production <span class="pp">|</span> Low <span class="pp">|</span> High <span class="pp">|</span> 8 <span class="pp">|</span> Kestrel HTTPS + HSTS <span class="pp">|</span> Let's Encrypt cert <span class="pp">|</span></span>
+<span id="cb14-424"><a href="#cb14-424" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **PII** <span class="pp">|</span> R7 <span class="pp">|</span> API exposes PII <span class="pp">|</span> Low <span class="pp">|</span> Crit <span class="pp">|</span> 10 <span class="pp">|</span> DTO projection only <span class="pp">|</span> Audit API responses weekly <span class="pp">|</span></span>
+<span id="cb14-425"><a href="#cb14-425" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-426"><a href="#cb14-426" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb14-427"><a href="#cb14-427" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-428"><a href="#cb14-428" aria-hidden="true" tabindex="-1"></a><span class="fu">## 19. Disaster recovery — Plans B and C</span></span>
+<span id="cb14-429"><a href="#cb14-429" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-430"><a href="#cb14-430" aria-hidden="true" tabindex="-1"></a><span class="fu">### 19.1 Scenarios</span></span>
+<span id="cb14-431"><a href="#cb14-431" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-432"><a href="#cb14-432" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Scenario <span class="pp">|</span> Impact <span class="pp">|</span> Plan B <span class="pp">|</span> Plan C <span class="pp">|</span></span>
+<span id="cb14-433"><a href="#cb14-433" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|</span></span>
+<span id="cb14-434"><a href="#cb14-434" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> SQL backup fails <span class="pp">|</span> AuditLog lost = compliance breach <span class="pp">|</span> Full daily + diff 4hr + tlog 15min (RPO=15min) <span class="pp">|</span> Always On AG (RTO&lt;30s) <span class="pp">|</span></span>
+<span id="cb14-435"><a href="#cb14-435" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Data corruption <span class="pp">|</span> Wrong reports, footings don't reconcile <span class="pp">|</span> DBCC CHECKDB daily <span class="pp">|</span> Restore → usp_FootingVerification <span class="pp">|</span></span>
+<span id="cb14-436"><a href="#cb14-436" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> API crashes <span class="pp">|</span> Auditors can't work <span class="pp">|</span> Health check + auto-restart <span class="pp">|</span> Blue-green: old version stays live <span class="pp">|</span></span>
+<span id="cb14-437"><a href="#cb14-437" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Trigger disabled <span class="pp">|</span> Audit trail has gaps <span class="pp">|</span> SQL Agent checks hourly <span class="pp">|</span> DENY ALTER to non-admin <span class="pp">|</span></span>
+<span id="cb14-438"><a href="#cb14-438" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Ransomware <span class="pp">|</span> Everything encrypted <span class="pp">|</span> Azure Blob GRS (off-site) <span class="pp">|</span> Air-gapped backup <span class="pp">|</span></span>
+<span id="cb14-439"><a href="#cb14-439" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Credentials leaked <span class="pp">|</span> Unauthorized DB access <span class="pp">|</span> Rotate + revoke immediately <span class="pp">|</span> All secrets → Key Vault <span class="pp">|</span></span>
+<span id="cb14-440"><a href="#cb14-440" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Bad SP deploy <span class="pp">|</span> Wrong calculations <span class="pp">|</span> Git tag rollback <span class="pp">|</span> Staging DB with test suite <span class="pp">|</span></span>
+<span id="cb14-441"><a href="#cb14-441" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Performance crash <span class="pp">|</span> Timeouts at 1M+ loans <span class="pp">|</span> Indexes + OFFSET/FETCH <span class="pp">|</span> Partition by ClosingDate year <span class="pp">|</span></span>
+<span id="cb14-442"><a href="#cb14-442" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-443"><a href="#cb14-443" aria-hidden="true" tabindex="-1"></a><span class="fu">### 19.2 Rollback procedure</span></span>
+<span id="cb14-444"><a href="#cb14-444" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-445"><a href="#cb14-445" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-446"><a href="#cb14-446" aria-hidden="true" tabindex="-1"></a><span class="in"> 1. STOP the API: Stop-Process -Name "NeboAudit.Api" -Force</span></span>
+<span id="cb14-447"><a href="#cb14-447" aria-hidden="true" tabindex="-1"></a><span class="in"> 2. IDENTIFY last valid backup</span></span>
+<span id="cb14-448"><a href="#cb14-448" aria-hidden="true" tabindex="-1"></a><span class="in"> 3. RESTORE: RESTORE DATABASE NeboAudit FROM DISK = 'path'</span></span>
+<span id="cb14-449"><a href="#cb14-449" aria-hidden="true" tabindex="-1"></a><span class="in"> 4. VERIFY: DBCC CHECKDB('NeboAudit')</span></span>
+<span id="cb14-450"><a href="#cb14-450" aria-hidden="true" tabindex="-1"></a><span class="in"> 5. RECONCILE: EXEC usp_FootingVerification</span></span>
+<span id="cb14-451"><a href="#cb14-451" aria-hidden="true" tabindex="-1"></a><span class="in"> 6. RE-APPLY transaction logs from failure point</span></span>
+<span id="cb14-452"><a href="#cb14-452" aria-hidden="true" tabindex="-1"></a><span class="in"> 7. CHECK: SELECT MAX(AuditId) FROM AuditLog — no gaps</span></span>
+<span id="cb14-453"><a href="#cb14-453" aria-hidden="true" tabindex="-1"></a><span class="in"> 8. RESTART: cd NeboAudit.Api; dotnet run</span></span>
+<span id="cb14-454"><a href="#cb14-454" aria-hidden="true" tabindex="-1"></a><span class="in"> 9. NOTIFY auditors of downtime</span></span>
+<span id="cb14-455"><a href="#cb14-455" aria-hidden="true" tabindex="-1"></a><span class="in">10. POST-MORTEM: document root cause + corrective action</span></span>
+<span id="cb14-456"><a href="#cb14-456" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-457"><a href="#cb14-457" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-458"><a href="#cb14-458" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb14-459"><a href="#cb14-459" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-460"><a href="#cb14-460" aria-hidden="true" tabindex="-1"></a><span class="fu">## 20. Competitive analysis</span></span>
+<span id="cb14-461"><a href="#cb14-461" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-462"><a href="#cb14-462" aria-hidden="true" tabindex="-1"></a><span class="fu">### 20.1 Nebo vs. the market</span></span>
+<span id="cb14-463"><a href="#cb14-463" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-464"><a href="#cb14-464" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Dimension <span class="pp">|</span> Nebo (MetaSource) <span class="pp">|</span> ACES <span class="pp">|</span> LoanLogics <span class="pp">|</span> Opus CMC <span class="pp">|</span></span>
+<span id="cb14-465"><a href="#cb14-465" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|---|</span></span>
+<span id="cb14-466"><a href="#cb14-466" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Founded <span class="pp">|</span> 1993 <span class="pp">|</span> 1994 <span class="pp">|</span> 2005 <span class="pp">|</span> 2005 <span class="pp">|</span></span>
+<span id="cb14-467"><a href="#cb14-467" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Clients <span class="pp">|</span> 800+ <span class="pp">|</span> 70% top 20 lenders <span class="pp">|</span> Mid-market <span class="pp">|</span> Capital markets <span class="pp">|</span></span>
+<span id="cb14-468"><a href="#cb14-468" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> AI/ML <span class="pp">|</span> ML.NET (building) <span class="pp">|</span> ACES Intelligence (live) <span class="pp">|</span> LoanHD analytics <span class="pp">|</span> Basic <span class="pp">|</span></span>
+<span id="cb14-469"><a href="#cb14-469" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Core tech <span class="pp">|</span> .NET 9 + SQL Server <span class="pp">|</span> Proprietary cloud <span class="pp">|</span> Cloud-based <span class="pp">|</span> Legacy <span class="pp">|</span></span>
+<span id="cb14-470"><a href="#cb14-470" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Key product <span class="pp">|</span> Nebo + QLink + QReview <span class="pp">|</span> ACES Analytics + AI <span class="pp">|</span> LoanHD <span class="pp">|</span> Due diligence <span class="pp">|</span></span>
+<span id="cb14-471"><a href="#cb14-471" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Pricing <span class="pp">|</span> Per audit fee <span class="pp">|</span> SaaS license ($$) <span class="pp">|</span> Per loan + platform <span class="pp">|</span> Project-based <span class="pp">|</span></span>
+<span id="cb14-472"><a href="#cb14-472" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Strength <span class="pp">|</span> Turn time, .NET ML, trail <span class="pp">|</span> Best AI, market leader <span class="pp">|</span> Doc classification <span class="pp">|</span> Investor focus <span class="pp">|</span></span>
+<span id="cb14-473"><a href="#cb14-473" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Weakness vs Nebo <span class="pp">|</span> — <span class="pp">|</span> Expensive, less custom <span class="pp">|</span> Acquired by PE <span class="pp">|</span> Not tech-forward <span class="pp">|</span></span>
+<span id="cb14-474"><a href="#cb14-474" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-475"><a href="#cb14-475" aria-hidden="true" tabindex="-1"></a><span class="fu">### 20.2 Nebo advantages</span></span>
+<span id="cb14-476"><a href="#cb14-476" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-477"><a href="#cb14-477" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Advantage <span class="pp">|</span> Why it matters <span class="pp">|</span></span>
+<span id="cb14-478"><a href="#cb14-478" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
+<span id="cb14-479"><a href="#cb14-479" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> ML inside API (no extra infra) <span class="pp">|</span> ACES charges $15-25/loan extra; ML.NET = $0 marginal <span class="pp">|</span></span>
+<span id="cb14-480"><a href="#cb14-480" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Audit trail for ML decisions <span class="pp">|</span> Every prediction in dbo.MLPredictions — regulator traceable <span class="pp">|</span></span>
+<span id="cb14-481"><a href="#cb14-481" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> SQL Server native (RLS, triggers, computed cols) <span class="pp">|</span> No app-level workarounds needed <span class="pp">|</span></span>
+<span id="cb14-482"><a href="#cb14-482" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Local LLM for PII safety <span class="pp">|</span> Ollama keeps mortgage data on-premises <span class="pp">|</span></span>
+<span id="cb14-483"><a href="#cb14-483" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> .NET ecosystem <span class="pp">|</span> ML.NET, EF Core, SignalR, JWT — all first-party Microsoft <span class="pp">|</span></span>
+<span id="cb14-484"><a href="#cb14-484" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-485"><a href="#cb14-485" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb14-486"><a href="#cb14-486" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-487"><a href="#cb14-487" aria-hidden="true" tabindex="-1"></a><span class="fu">## 21. Interview pitch</span></span>
+<span id="cb14-488"><a href="#cb14-488" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-489"><a href="#cb14-489" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; "I built the complete Nebo audit platform with 1,000 loans, two tenants, risk scoring, and cross-foot verified footings. The SQL Server layer includes a Pareto analysis SP, anomaly detection, GROUPING SETS for automatic footings, and MERGE upserts with LTV validation.</span></span>
+<span id="cb14-490"><a href="#cb14-490" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span></span>
+<span id="cb14-491"><a href="#cb14-491" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Every change is traceable: the audit trigger captures who, when, old value, new value. Row-Level Security ensures FNB never sees MMC's data. The JWT claims carry the TenantId, and the API middleware sets SESSION_CONTEXT on every request.</span></span>
+<span id="cb14-492"><a href="#cb14-492" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span></span>
+<span id="cb14-493"><a href="#cb14-493" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; The Pareto analysis shows the top 3 root causes drive ~70% of penalties. Two stored procedures — LTV validation and COE pre-check — would save over a million dollars for a $7K investment.</span></span>
+<span id="cb14-494"><a href="#cb14-494" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span></span>
+<span id="cb14-495"><a href="#cb14-495" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; I also built a RAG chatbot using Ollama so auditors can query loans and regulations in natural language. Everything runs locally — SQL Server, .NET API, Ollama, ChromaDB — ready to demo."</span></span>
+<span id="cb14-496"><a href="#cb14-496" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-497"><a href="#cb14-497" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb14-498"><a href="#cb14-498" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-499"><a href="#cb14-499" aria-hidden="true" tabindex="-1"></a><span class="fu">## Checklist — Monday 15 Jun, 3 PM MT</span></span>
+<span id="cb14-500"><a href="#cb14-500" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-501"><a href="#cb14-501" aria-hidden="true" tabindex="-1"></a><span class="in">```powershell</span></span>
+<span id="cb14-502"><a href="#cb14-502" aria-hidden="true" tabindex="-1"></a><span class="in"># Morning checks</span></span>
+<span id="cb14-503"><a href="#cb14-503" aria-hidden="true" tabindex="-1"></a><span class="in">Get-Service -Name "MSSQLSERVER"                              # SQL Server running</span></span>
+<span id="cb14-504"><a href="#cb14-504" aria-hidden="true" tabindex="-1"></a><span class="in">sqlcmd -Q "SELECT COUNT(*) FROM NeboAudit.dbo.Loans"        # data loaded</span></span>
+<span id="cb14-505"><a href="#cb14-505" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-506"><a href="#cb14-506" aria-hidden="true" tabindex="-1"></a><span class="in"># Start API</span></span>
+<span id="cb14-507"><a href="#cb14-507" aria-hidden="true" tabindex="-1"></a><span class="in">cd "C:\Dev\NeboAudit Platform\NeboAudit.Api"</span></span>
+<span id="cb14-508"><a href="#cb14-508" aria-hidden="true" tabindex="-1"></a><span class="in">dotnet run                                                    # localhost:5267</span></span>
+<span id="cb14-509"><a href="#cb14-509" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-510"><a href="#cb14-510" aria-hidden="true" tabindex="-1"></a><span class="in"># Live demos in SSMS</span></span>
+<span id="cb14-511"><a href="#cb14-511" aria-hidden="true" tabindex="-1"></a><span class="in">EXEC dbo.usp_GetPortfolioSummary @TenantId = 1;             # FNB summary</span></span>
+<span id="cb14-512"><a href="#cb14-512" aria-hidden="true" tabindex="-1"></a><span class="in">EXEC dbo.usp_ParetoAnalysis;                                  # root causes</span></span>
+<span id="cb14-513"><a href="#cb14-513" aria-hidden="true" tabindex="-1"></a><span class="in">EXEC dbo.usp_FootingVerification;                             # cross-foot</span></span>
+<span id="cb14-514"><a href="#cb14-514" aria-hidden="true" tabindex="-1"></a><span class="in">EXEC dbo.usp_KPIDashboard;                                    # semaphores</span></span>
+<span id="cb14-515"><a href="#cb14-515" aria-hidden="true" tabindex="-1"></a><span class="in">EXEC dbo.usp_AuditTrail @LoanId = 1, @DaysBack = 365;       # traceability</span></span>
+<span id="cb14-516"><a href="#cb14-516" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-517"><a href="#cb14-517" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-518"><a href="#cb14-518" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb14-519"><a href="#cb14-519" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-520"><a href="#cb14-520" aria-hidden="true" tabindex="-1"></a>*Secciones 11–21 para agregar a NeboAudit_Guia_Completa.md*</span>
+<span id="cb14-521"><a href="#cb14-521" aria-hidden="true" tabindex="-1"></a>*Luis Carreño · lcarrenoy@uni.pe · 15/06/2026*</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>NeboAudit — Regulatory Governance System | Luis Carreño · lcarrenoy@uni.pe</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/lcarrenoy/NeboAudit">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
